@@ -1,0 +1,44 @@
+@import "../../styles/globals.module";
+
+.container {
+  background-color: rgb(46, 48, 52);
+  border-radius: $border-radius-2;
+  padding: 0 $separation-24;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  color: white;
+  box-shadow: $card-elevation-3;
+
+  &__logo > span {
+    color: red;
+  }
+
+  &__search_bar {
+    margin-left: 5%;
+    width: 100%;
+    max-width: 400px;
+    min-width: 100px;
+  }
+
+  &__search_bar > input {
+    border: none;
+    border-radius: $border-radius-1;
+    height:  30px;
+    width:  100%;
+  }
+
+  &__options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+  }
+
+  &__options > li {
+    margin: 0 20px;
+  }
+}

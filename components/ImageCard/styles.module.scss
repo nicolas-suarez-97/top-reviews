@@ -1,0 +1,65 @@
+@import "../../styles/globals.module";
+
+.card {
+  min-height: $small-card-height;
+  min-width: $small-card-width;
+  border-radius: $border-radius-2;
+  overflow: hidden;
+  margin: 0;
+  position: relative;
+
+  &__shadow {
+    position: absolute;
+    bottom: 0;
+    border-radius: $border-radius-2;
+    background: $front-shadow-2;
+    width: 100%;
+    height: 60%;
+    padding: $separation-24;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__image {
+    border-radius: $border-radius-2;
+  }
+
+  &__title {
+    color: white;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+  }
+}
+
+.large {
+  height: $large-card-height;
+  width: $large-card-width;
+}
+
+.medium {
+  height: $medium-card-height;
+  width: $medium-card-width;
+}
+
+.small {
+  height: $small-card-height;
+  width: $small-card-width;
+  font-size: 10px;
+}
+
+.largeSquare {
+  height: $large-card-height;
+  width: $large-card-height;
+}
+
+.mediumSquare {
+  height: $medium-card-width;
+  width: $medium-card-width;
+}
+
+.smallSquare {
+  height: $small-card-width;
+  width: $small-card-width;
+  font-size: 10px;
+}

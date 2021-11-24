@@ -1,0 +1,78 @@
+@import "../../styles/globals.module";
+
+.product {
+  display: flex;
+  padding: $separation-16;
+  border-radius: $border-radius-2;
+  width: 100%;
+  max-width: 900px;
+  justify-content: space-around;
+  position: relative;
+  margin: $separation-16;
+
+  &__number {
+    position: absolute;
+    left: -$separation-16;
+    top: -$separation-16;
+    background-color: red;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    z-index: 1;
+    border-radius: 100px;
+    font-weight: bold;
+    font-size: 24px;
+  }
+
+  &__image {
+    display: flex;
+    margin: 0 $separation-8 0 0;
+  }
+
+  &__info {
+    margin: 0 $separation-16;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 500px;
+    min-width: 200px;
+    width: 100%;
+  }
+
+  &__title {
+    font-size: 22px;
+  }
+
+  &__store {
+    font-size: 18px;
+    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  &__more {
+    margin: 0 $separation-16;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__rating {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  &__moreInfo {
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

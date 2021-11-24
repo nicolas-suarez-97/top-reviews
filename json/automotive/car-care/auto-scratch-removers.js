@@ -15,6 +15,7 @@ const autoScratchRemovers = {
             imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
             imageAlt: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
             rating: 5,
+            number: 1,
         },
         {
             name: 'SHINE ARMOR Car Scratch Remover, Repair, Protection, & Swirl Remover Polish, 4oz',
@@ -25,6 +26,7 @@ const autoScratchRemovers = {
             imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
             imageAlt: 'SHINE ARMOR Car Scratch Remover, Repair, Protection, & Swirl Remover Polish, 4oz',
             rating: 5,
+            number: 1,
         },
         {
             name: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
@@ -35,6 +37,7 @@ const autoScratchRemovers = {
             imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
             imageAlt: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
             rating: 5,
+            number: 1,
         },
         {
             name: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
@@ -45,6 +48,7 @@ const autoScratchRemovers = {
             imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
             imageAlt: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
             rating: 5,
+            number: 1,
         },
         {
             name: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
@@ -55,6 +59,7 @@ const autoScratchRemovers = {
             imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
             imageAlt: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
             rating: 5,
+            number: 1,
         },
         {
             name: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
@@ -65,6 +70,7 @@ const autoScratchRemovers = {
             imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
             imageAlt: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
             rating: 5,
+            number: 1,
         },
         {
             name: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
@@ -75,6 +81,7 @@ const autoScratchRemovers = {
             imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
             imageAlt: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',
             rating: 5,
+            number: 1,
         }
     ]
 }

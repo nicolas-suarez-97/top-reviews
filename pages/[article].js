@@ -1,15 +1,18 @@
 import Link from "next/link";
 import * as articleService from "./api/articles"
+import Layout from "../sections/layout/Layout";
 
 const Article = ({data}) => {
 
     return <>
-        <h1>{data.title}</h1>
-        <ul>
-            <li><Link href='/'>Home</Link></li>
-            <li><Link href='/categories'>Categories</Link></li>
-        </ul>
-        {data.products.map(p => (<p key={p.name}>{p.name}</p>))}
+        <Layout>
+            <h1>{data.title}</h1>
+            <ul>
+                <li><Link href='/'>Home</Link></li>
+                <li><Link href='/categories'>Categories</Link></li>
+            </ul>
+            {data.products.map(p => (<p key={p.name}>{p.name}</p>))}
+        </Layout>
     </>
 }
 

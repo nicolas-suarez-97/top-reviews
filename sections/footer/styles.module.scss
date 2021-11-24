@@ -1,0 +1,22 @@
+@import "../../styles/globals.module";
+
+.footer {
+  box-shadow: $card-elevation-2;
+  width: 100%;
+  height: 100px;
+  border-radius: $border-radius-2;
+  padding: 0 $separation-24;
+
+  &__options {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__options > li {
+    text-transform: uppercase;
+  }
+}
+

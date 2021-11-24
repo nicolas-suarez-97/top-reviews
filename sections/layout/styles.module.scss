@@ -1,0 +1,7 @@
+@import "../../styles/globals.module";
+
+.container {
+  border-radius: $border-radius-2;
+  margin: $separation-24 0;
+  min-height: $min-layout-height;
+}

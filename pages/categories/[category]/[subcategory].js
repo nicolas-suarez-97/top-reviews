@@ -1,13 +1,16 @@
 import { useRouter } from 'next/router'
 import Link from "next/link";
 import * as categoryService from "../../api/categories"
+import Layout from "../../../sections/layout/Layout";
 
 const Subcategory = ({data}) => {
     const {category} = useRouter().query;
     return <>
-        <h1>{category}</h1>
-        <h3>{data.name}</h3>
-        {data.articles.map(a => (<Link key={a.id} href={`/${a.id}`}>{a.title}</Link>))}
+        <Layout>
+            <h1>{category}</h1>
+            <h3>{data.name}</h3>
+            {data.articles.map(a => (<Link key={a.id} href={`/${a.id}`}>{a.title}</Link>))}
+        </Layout>
     </>
 }
 

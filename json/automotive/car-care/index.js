@@ -6,7 +6,8 @@ const carCare = {
     imageUrl: '',
     categoryId: 'automotive',
     articles: [
-        autoScratchRemovers
+        autoScratchRemovers,
+
     ]
 }
 

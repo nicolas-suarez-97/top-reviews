@@ -1,0 +1,60 @@
+
+// Elevation
+$card-elevation-1:  0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+$card-elevation-2:  0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+$card-elevation-3:  0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+$card-elevation-4:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+$card-elevation-5:  0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+
+//Border
+$border-radius-1: 8px;
+$border-radius-2: 16px;
+$border-radius-3: 24px;
+$border-radius-4: 32px;
+
+//Colors
+
+//Sizes
+$min-layout-height: 500px;
+$separation-8: 8px;
+$separation-16: 16px;
+$separation-24: 24px;
+$separation-32: 32px;
+$separation-40: 40px;
+$separation-48: 48px;
+$separation-56: 56px;
+$separation-62: 62px;
+
+$large-card-height: 400px;
+$large-card-width: 600px;
+$medium-card-height: 200px;
+$medium-card-width:  300px;
+$small-card-height:  130px;
+$small-card-width:  200px;
+
+$height-100: 100%;
+$width-100: 100%;
+
+//Card front shadow
+
+$front-shadow-1: linear-gradient(0deg, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.60) 25%, rgba(0,0,0,0.20) 77%, rgba(0,0,0,0) 100%);
+$front-shadow-2: linear-gradient(0deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.40) 25%, rgba(0,0,0,0.20) 77%, rgba(0,0,0,0) 100%);
+
+.elevation0 {
+  box-shadow: none;
+}
+.elevation1 {
+  box-shadow: $card-elevation-1;
+}
+.elevation2 {
+  box-shadow: $card-elevation-2;
+}
+.elevation3 {
+  box-shadow: $card-elevation-3;
+}
+.elevation4 {
+  box-shadow: $card-elevation-4;
+}
+.elevation5 {
+  box-shadow: $card-elevation-5;
+}

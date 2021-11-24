@@ -1,12 +1,15 @@
 import Link from "next/link";
 import * as categoryService from "../api/categories"
+import Layout from "../../sections/layout/Layout";
 
 const Categories = ({data}) => {
     return <>
-        <h1>Categories</h1>
-        <ul>
-            {data.map(d => (<li key={d.id} ><Link href={`/categories/${d.id}`}>{d.name}</Link></li>))}
-        </ul>
+        <Layout>
+            <h1>Categories</h1>
+            <ul>
+                {data.map(d => (<li key={d.id} ><Link href={`/categories/${d.id}`}>{d.name}</Link></li>))}
+            </ul>
+        </Layout>
     </>
 }
 

@@ -1,3 +1,4 @@
+import best4kHdmiCables from "./best-4k-hdmi-cables";
 
 const accessoriesSupplies = {
     name: 'Accessories & Supplies',
@@ -5,6 +6,7 @@ const accessoriesSupplies = {
     imageUrl: '',
     categoryId: 'electronics',
     articles: [
+        best4kHdmiCables
     ]
 }
 
