@@ -18,7 +18,7 @@ import wearableTechnology from "./wearable-technology";
 const electronics = {
     name: 'Electronics',
     id: 'electronics',
-    imageUrl: '',
+    imageUrl: 'https://m.media-amazon.com/images/I/513REi5l7qL._SL160_.jpg',
     subcategories: [
         accessoriesSupplies,
         cameraPhoto,

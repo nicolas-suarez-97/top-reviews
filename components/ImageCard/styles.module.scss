@@ -1,8 +1,8 @@
 @import "../../styles/globals.module";
 
 .card {
-  min-height: $small-card-height;
-  min-width: $small-card-width;
+  min-height: $extra-small-card;
+  min-width: $extra-small-card;
   border-radius: $border-radius-2;
   overflow: hidden;
   margin: 0;
@@ -12,7 +12,7 @@
     position: absolute;
     bottom: 0;
     border-radius: $border-radius-2;
-    background: $front-shadow-2;
+    background: $front-shadow-3;
     width: 100%;
     height: 60%;
     padding: $separation-24;
@@ -29,6 +29,7 @@
     padding: 0;
     margin: 0;
     overflow: hidden;
+
   }
 }
 
@@ -62,4 +63,9 @@
   height: $small-card-width;
   width: $small-card-width;
   font-size: 10px;
+}
+
+.extraSmall {
+  height: $extra-small-card;
+  width: $extra-small-card;
 }

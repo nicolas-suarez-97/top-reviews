@@ -5,7 +5,11 @@ import styles from './styles.module.scss'
 const Header = () => {
     return (
         <div className={styles.container}>
-            <h2 className={styles.container__logo}><span>Top</span>Reviews</h2>
+            <Link href='/' passHref>
+                <a>
+                    <h2 className={styles.container__logo}><span>Top</span>Reviews</h2>
+                </a>
+            </Link>
             <div className={styles.container__search_bar}>
 
                 <input type="text"/>

@@ -1,0 +1,37 @@
+@import "../../styles/globals.module";
+
+.main {
+  min-width: 24%;
+  max-width: 250px;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius-2;
+  box-shadow: $card-elevation-2;
+  padding: $separation-16;
+}
+
+.link {
+  margin-right: $separation-16;
+}
+
+.subcategories {
+  display: flex;
+  flex-direction: column;
+  padding: $separation-16;
+  border-radius: $border-radius-2;
+  margin-top: $separation-8;
+
+
+  &__name {
+    margin-bottom: $separation-8;
+    transition: all .1s ease-in-out;
+
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}

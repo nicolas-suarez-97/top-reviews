@@ -8,8 +8,10 @@ export default function handler(req, res) {
         return {
             name: c.name,
             id: c.id,
-            subCategories: c.subcategories.map(d => d.name),
-            subCategoriesId: c.subcategories.map(s => s.id),
+            subCategories: c.subcategories.map(d => ({
+                name: d.name,
+                id: d.id,
+            })),
             imageUrl: c.imageUrl
         }
     }))
@@ -20,8 +22,10 @@ function getCategoryList() {
         return {
             name: c.name,
             id: c.id,
-            subCategories: c.subcategories.map(d => d.name),
-            subCategoriesId: c.subcategories.map(s => s.id),
+            subCategories: c.subcategories.map(d => ({
+                name: d.name,
+                id: d.id,
+            })),
             imageUrl: c.imageUrl
         }
     })

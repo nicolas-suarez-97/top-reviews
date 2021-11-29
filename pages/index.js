@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Layout from "../sections/layout/Layout";
 import ImageCard from "../components/ImageCard";
 import styles from "./home.module.scss";
@@ -21,17 +20,14 @@ export default function Home() {
         <>
             <Layout>
                 <div className={styles.test}>
-                    {/*<ImageCard*/}
-                    {/*    size='large'*/}
-                    {/*    image='https://picsum.photos/400/200'*/}
-                    {/*    title='Hola Mundo'*/}
-                    {/*    elevation={2}*/}
-                    {/*    link='/'*/}
-                    {/*/>*/}
-                    <ProductCard
-                        number={1}
-                        link='/'
+                    <ImageCard
+                        size='large'
                         image='https://picsum.photos/400/200'
+                        title='Hola Mundo'
+                        elevation={2}
+                        link='/'
+                    />
+                    <ProductCard
                         product={product}
                     />
                 </div>

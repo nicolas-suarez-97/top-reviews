@@ -31,6 +31,7 @@ $medium-card-height: 200px;
 $medium-card-width:  300px;
 $small-card-height:  130px;
 $small-card-width:  200px;
+$extra-small-card:  100px;
 
 $height-100: 100%;
 $width-100: 100%;
@@ -39,6 +40,7 @@ $width-100: 100%;
 
 $front-shadow-1: linear-gradient(0deg, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.60) 25%, rgba(0,0,0,0.20) 77%, rgba(0,0,0,0) 100%);
 $front-shadow-2: linear-gradient(0deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.40) 25%, rgba(0,0,0,0.20) 77%, rgba(0,0,0,0) 100%);
+$front-shadow-3: linear-gradient(0deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.30) 30%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0) 100%);
 
 .elevation0 {
   box-shadow: none;

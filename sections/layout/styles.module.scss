@@ -2,6 +2,7 @@
 
 .container {
   border-radius: $border-radius-2;
-  margin: $separation-24 0;
+  margin: $separation-24 auto;
   min-height: $min-layout-height;
+  max-width: 1100px;
 }

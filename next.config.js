@@ -3,7 +3,7 @@ module.exports = {
   images: {
     domains: [
       'picsum.photos',
-      'm.media-amazon.com'
+      'm.media-amazon.com',
     ],
   },
 }

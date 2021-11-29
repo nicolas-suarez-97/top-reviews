@@ -4,14 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import {getElevation} from "../../utils/utils";
 
-const ImageCard = ({size, image, title, elevation, link, imageAlt}) => {
+const ImageCard = ({size, image, title, elevation, link, imageAlt, className}) => {
     const cardSize = getImageCardSize(size)
 
     let cardElevation = getElevation(elevation)
 
     return image !== null ? (
         <Link href={link}>
-            <a className={`${styles.card} ${cardSize} ${cardElevation}`}>
+            <a className={`${styles.card} ${cardSize} ${cardElevation} ${className}`}>
                 <Image className={`${styles.card__image}`} src={image} alt={imageAlt} layout="fill"/>
                 {
                     title ? (
@@ -39,6 +39,8 @@ const getImageCardSize = (size) => {
             return styles.mediumSquare;
         case 'small-square':
             return styles.smallSquare;
+        case 'extra-small':
+            return styles.extraSmall;
         default:
             return styles.small
     }

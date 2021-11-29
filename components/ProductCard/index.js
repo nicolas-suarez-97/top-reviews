@@ -4,11 +4,11 @@ import styles from "./styles.module.scss";
 import Link from "next/link";
 import {getElevation} from "../../utils/utils";
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, className}) => {
     const {number, imageUrl, link, storeUrl, name, store, rating, imageAlt} = product;
     return (
         <Link href={link}>
-            <a className={`${styles.product} ${getElevation(2)}`}>
+            <a className={`${styles.product} ${getElevation(2)} ${className}`}>
                 {
                     number ? (<div className={`${styles.product__number} ${getElevation(2)}`}>{number}</div>) : null
                 }

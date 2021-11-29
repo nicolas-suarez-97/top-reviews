@@ -26,10 +26,10 @@ export async function getStaticPaths() {
 
     let paths = []
     categories.map(c => {
-        paths = paths.concat(c.subCategoriesId.map(s => ({
-            params: {category: c.id, subcategory: s}
+        paths = paths.concat(c.subCategories.map(s => ({
+            params: {category: c.id, subcategory: s.id}
         })))
-        return {params: {category: c.id, subcategory: 'test'}}
+        return paths
     })
 
     return { paths, fallback: false }
