@@ -1,8 +1,8 @@
-import styles from "./styles.module.scss";
+import styles from "./category-component.module.scss";
 import Link from "next/link";
 import ImageCard from "../ImageCard";
 
-const CategoryCard = ({category}) => {
+const CategoryComponent = ({category}) => {
     return (
         <div key={category.id} className={styles.main}>
             <Link href={`/categories/${category.id}`}  passHref>
@@ -28,4 +28,4 @@ const CategoryCard = ({category}) => {
     );
 }
 
-export default CategoryCard;
+export default CategoryComponent;

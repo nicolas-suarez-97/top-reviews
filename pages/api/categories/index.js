@@ -25,6 +25,7 @@ function getCategoryList() {
             subCategories: c.subcategories.map(d => ({
                 name: d.name,
                 id: d.id,
+                imageUrl: d.imageUrl
             })),
             imageUrl: c.imageUrl
         }

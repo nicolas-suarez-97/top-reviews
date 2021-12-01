@@ -1,8 +1,8 @@
 
 const best4kHdmiCables = {
-    title: '10 Best 4K Hdmi Cables',
-    id: '10-best-4k-hdmi-cables',
-    imageUrl: '',
+    title: '4K Hdmi Cables',
+    id: '4k-hdmi-cables',
+    imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
     link: '',
     categoryId: 'electronics',
     subCategoryId: 'accessories-supplies',

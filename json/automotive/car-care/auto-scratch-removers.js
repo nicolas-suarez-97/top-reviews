@@ -1,7 +1,7 @@
 const autoScratchRemovers = {
-    title: '10 Best Auto Scratch',
-    id: '10-best-auto-scratch',
-    imageUrl: '',
+    title: 'Auto Scratch',
+    id: 'auto-scratch',
+    imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
     link: '',
     categoryId: 'automotive',
     subCategoryId: 'car-care',

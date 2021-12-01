@@ -1,7 +1,26 @@
-.test {
+@import "styles/globals.module";
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.secondary {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+}
+
+.image {
+  margin: $separation-8;
+}
+
+.others {
+  margin-top: $separation-16;
+  display: flex;
+  position: relative;
+  flex-direction: row;
+}
+
+.categories {
+  margin-top: $separation-62;
 }

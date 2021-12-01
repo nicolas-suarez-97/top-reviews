@@ -5,11 +5,23 @@ export default function handler(req, res) {
     res.status(200).json(articles.map(a => a.id))
 }
 
-function getArticles() {
+function getArticlesIds() {
     return articles.map(a => a.id)
 }
 
+function getArticles() {
+    return articles.map(a => ({
+        id: a.id,
+        imageUrl: a.imageUrl,
+        link: `/${a.id}`,
+        title: a.title,
+        categoryId: a.categoryId,
+        subCategoryId: a.subCategoryId,
+    }))
+}
+
 export {
-    getArticles,
-    getArticleById
+    getArticlesIds,
+    getArticleById,
+    getArticles
 }

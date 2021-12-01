@@ -1,14 +1,27 @@
-import Link from "next/link";
 import * as categoryService from "../../api/categories"
 import Layout from "../../../sections/layout/Layout";
+import styles from "./index.module.scss";
+import CategoryCard from "../../../components/CategoryCard/CategoryCard";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 
 const Category = ({data}) => {
     return <>
         <Layout>
             <h1>{data.name}</h1>
-            <ul>
-                {data.subcategories.map(d => (<li key={d.id}><Link href={`/categories/${data.id}/${d.id}`}>{d.name}</Link></li>))}
-            </ul>
+            <ResponsiveMasonry
+                columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
+            >
+                <Masonry>
+                {data.subcategories.map(d => (
+                    <CategoryCard
+                        key={d.id}
+                        name={d.name}
+                        imageUrl={d.imageUrl}
+                        link={`/categories/${data.id}/${d.id}`}
+                    />
+                ))}
+                </Masonry>
+            </ResponsiveMasonry>
         </Layout>
     </>
 }

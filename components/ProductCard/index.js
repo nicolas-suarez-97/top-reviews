@@ -7,11 +7,11 @@ import {getElevation} from "../../utils/utils";
 const ProductCard = ({product, className}) => {
     const {number, imageUrl, link, storeUrl, name, store, rating, imageAlt} = product;
     return (
-        <Link href={link}>
-            <a className={`${styles.product} ${getElevation(2)} ${className}`}>
-                {
-                    number ? (<div className={`${styles.product__number} ${getElevation(2)}`}>{number}</div>) : null
-                }
+        <a href={link} target="_blank" className={`${styles.product} ${getElevation(2)} ${className}`} rel="noreferrer">
+            {
+                number ? (<div className={`${styles.product__number} ${getElevation(2)}`}>{number}</div>) : null
+            }
+            <div className={styles.product__imageInfo}>
                 <div className={styles.product__image}>
                     <ImageCard
                         size='small-square'
@@ -27,14 +27,14 @@ const ProductCard = ({product, className}) => {
                         <p className={styles.product__store}>{store}</p>
                     </Link>
                 </div>
-                <div className={styles.product__more}>
-                    <p className={styles.product__rating}>{rating}</p>
-                    <Link href={link} passHref>
-                        <p className={styles.product__moreInfo}>More Info</p>
-                    </Link>
-                </div>
-            </a>
-        </Link>
+            </div>
+            <div className={styles.product__more}>
+                <p className={styles.product__rating}>{rating}</p>
+                <Link href={link} passHref>
+                    <p className={styles.product__moreInfo}>More Info</p>
+                </Link>
+            </div>
+        </a>
     );
 }
 

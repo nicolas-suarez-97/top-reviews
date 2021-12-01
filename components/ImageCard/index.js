@@ -9,7 +9,7 @@ const ImageCard = ({size, image, title, elevation, link, imageAlt, className}) =
 
     let cardElevation = getElevation(elevation)
 
-    return image !== null ? (
+    return image !== null && image !== "" ? (
         <Link href={link}>
             <a className={`${styles.card} ${cardSize} ${cardElevation} ${className}`}>
                 <Image className={`${styles.card__image}`} src={image} alt={imageAlt} layout="fill"/>

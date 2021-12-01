@@ -2,13 +2,12 @@
 
 .product {
   display: flex;
-  padding: $separation-16;
+  padding: $separation-8;
   border-radius: $border-radius-2;
   width: 100%;
-  max-width: 900px;
-  justify-content: space-around;
+  justify-content: space-between;
   position: relative;
-  margin: $separation-16;
+  margin: $separation-24 $separation-16;
 
   &__number {
     position: absolute;
@@ -25,6 +24,10 @@
     border-radius: 100px;
     font-weight: bold;
     font-size: 24px;
+  }
+
+  &__imageInfo {
+    display: flex;
   }
 
   &__image {
@@ -57,7 +60,7 @@
   }
 
   &__more {
-    margin: 0 $separation-16;
+    margin: 0 $separation-32;
     display: flex;
     flex-direction: column;
     justify-content: center;

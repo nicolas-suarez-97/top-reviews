@@ -1,11 +1,10 @@
 import * as categoryService from "../api/categories"
 import Layout from "../../sections/layout/Layout";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
-import CategoryCard from "../../components/CategoryCard";
+import CategoryComponent from "../../components/CategoryComponent/CategoryComponent";
 
 
 const Categories = ({data}) => {
-    console.log(data);
     return <>
         <Layout>
             <h1>All Categories</h1>
@@ -14,7 +13,7 @@ const Categories = ({data}) => {
             >
                 <Masonry>
                     {data.map(d => (
-                        <CategoryCard key={d.id} category={d} />
+                        <CategoryComponent key={d.id} category={d} />
                     ))}
                 </Masonry>
             </ResponsiveMasonry>

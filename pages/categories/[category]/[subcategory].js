@@ -1,15 +1,28 @@
-import { useRouter } from 'next/router'
 import Link from "next/link";
 import * as categoryService from "../../api/categories"
 import Layout from "../../../sections/layout/Layout";
+import CategoryCard from "../../../components/CategoryCard/CategoryCard";
+import styles from "./index.module.scss";
+import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 
 const Subcategory = ({data}) => {
-    const {category} = useRouter().query;
     return <>
         <Layout>
-            <h1>{category}</h1>
-            <h3>{data.name}</h3>
-            {data.articles.map(a => (<Link key={a.id} href={`/${a.id}`}>{a.title}</Link>))}
+            <h1>{data.name}</h1>
+            <ResponsiveMasonry
+                columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
+            >
+                <Masonry>
+                {data.articles.map(a => (
+                    <CategoryCard
+                        key={a.id}
+                        imageUrl={a.imageUrl}
+                        name={a.title}
+                        link={`/${a.id}`}
+                    />
+                ))}
+                </Masonry>
+            </ResponsiveMasonry>
         </Layout>
     </>
 }
@@ -19,7 +32,6 @@ export async function getStaticProps({params}) {
 
     return { props: { data } }
 }
-
 
 export async function getStaticPaths() {
     const categories = categoryService.getCategoryList()

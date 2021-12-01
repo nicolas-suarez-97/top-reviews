@@ -10,14 +10,14 @@ const Header = () => {
                     <h2 className={styles.container__logo}><span>Top</span>Reviews</h2>
                 </a>
             </Link>
-            <div className={styles.container__search_bar}>
+            {/*<div className={styles.container__search_bar}>*/}
 
-                <input type="text"/>
-            </div>
+            {/*    <input type="text"/>*/}
+            {/*</div>*/}
             <ul className={styles.container__options}>
                 <li><Link href='/'>Home</Link></li>
                 <li><Link href='/categories'>Categories</Link></li>
-                <li>Discover</li>
+                {/*<li>Discover</li>*/}
             </ul>
         </div>
     )

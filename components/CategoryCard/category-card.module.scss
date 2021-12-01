@@ -1,0 +1,17 @@
+@import "../../styles/globals.module";
+
+.main {
+  display: flex;
+  align-items: center;
+  box-shadow: $card-elevation-2;
+  border-radius: $border-radius-2;
+  padding: $separation-8;
+  margin: $separation-16 4px;
+  max-width: 240px;
+
+  & > p {
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+  }
+}

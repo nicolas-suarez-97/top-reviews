@@ -1,17 +1,22 @@
 import Link from "next/link";
 import * as articleService from "./api/articles"
 import Layout from "../sections/layout/Layout";
+import styles from "./article.module.scss";
+import ProductCard from "../components/ProductCard";
 
 const Article = ({data}) => {
 
     return <>
         <Layout>
-            <h1>{data.title}</h1>
-            <ul>
-                <li><Link href='/'>Home</Link></li>
-                <li><Link href='/categories'>Categories</Link></li>
-            </ul>
-            {data.products.map(p => (<p key={p.name}>{p.name}</p>))}
+            <h1 className={styles.title}>{data.title}</h1>
+            <div className={styles.container}>
+                {data.products.map(p => (
+                    <ProductCard
+                        key={p.id}
+                        product={p}
+                    />
+                ))}
+            </div>
         </Layout>
     </>
 }
@@ -24,7 +29,7 @@ export async function getStaticProps({params}) {
 }
 
 export async function getStaticPaths() {
-    const articles = articleService.getArticles()
+    const articles = articleService.getArticlesIds()
 
     const paths = articles.map(a => ({
         params: { article: a },

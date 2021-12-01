@@ -25,8 +25,8 @@ $separation-48: 48px;
 $separation-56: 56px;
 $separation-62: 62px;
 
-$large-card-height: 400px;
-$large-card-width: 600px;
+$large-card-height: 416px;
+$large-card-width: 616px;
 $medium-card-height: 200px;
 $medium-card-width:  300px;
 $small-card-height:  130px;
@@ -38,9 +38,9 @@ $width-100: 100%;
 
 //Card front shadow
 
-$front-shadow-1: linear-gradient(0deg, rgba(0,0,0,0.80) 0%, rgba(0,0,0,0.60) 25%, rgba(0,0,0,0.20) 77%, rgba(0,0,0,0) 100%);
+$front-shadow-1: linear-gradient(0deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.50) 25%, rgba(0,0,0,0.20) 77%, rgba(0,0,0,0) 100%);
 $front-shadow-2: linear-gradient(0deg, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.40) 25%, rgba(0,0,0,0.20) 77%, rgba(0,0,0,0) 100%);
-$front-shadow-3: linear-gradient(0deg, rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.30) 30%, rgba(0,0,0,0.10) 60%, rgba(0,0,0,0) 100%);
+$front-shadow-3: linear-gradient(0deg, rgba(0,0,0,0.20) 0%, rgba(0,0,0,0.15) 25%, rgba(0,0,0,0.10) 50%, rgba(0,0,0,0) 100%);
 
 .elevation0 {
   box-shadow: none;

@@ -5,7 +5,8 @@ import electronics from "./electronics";
 const categories = [
     automotive,
     appliances,
-    electronics
+    electronics,
+    automotive,
 ]
 
 export default categories;
