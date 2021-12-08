@@ -8,12 +8,12 @@ import CategoryComponent from "../components/CategoryComponent/CategoryComponent
 
 export default function Home() {
     const articles = articleService.getArticles()
-    console.log(articles)
     const data = categoryService.getCategoryList()
 
     return (
         <>
             <Layout>
+                <h1 className={styles.title}>Top Products In All Categories</h1>
                 <div>
                     <div className={styles.main}>
                         <ImageCard

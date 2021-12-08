@@ -4,16 +4,19 @@ import Layout from "../../../sections/layout/Layout";
 import CategoryCard from "../../../components/CategoryCard/CategoryCard";
 import styles from "./index.module.scss";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
+import {getCategoryList} from "../../../services/categoryService";
+import {getEnvUrl} from "../../../utils/utils";
 
-const Subcategory = ({data}) => {
+const Subcategory = ({data, category, subCategory}) => {
+    let title = subCategory[0].toUpperCase() + subCategory.slice(1).replaceAll('-', ' ')
     return <>
         <Layout>
-            <h1>{data.name}</h1>
+            <h1>{title}</h1>
             <ResponsiveMasonry
                 columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
             >
                 <Masonry>
-                {data.articles.map(a => (
+                {data.map(a => (
                     <CategoryCard
                         key={a.id}
                         imageUrl={a.imageUrl}
@@ -28,14 +31,13 @@ const Subcategory = ({data}) => {
 }
 
 export async function getStaticProps({params}) {
-    const data = categoryService.getSubcategory(params.category, params.subcategory)
-
-    return { props: { data } }
+    let response = await fetch(`${getEnvUrl()}/api/article?subCategoryId=${params.subcategory}`);
+    let data = await response.json();
+    return { props: { data: data['message'], category: params.category, subCategory: params.subcategory } }
 }
 
 export async function getStaticPaths() {
-    const categories = categoryService.getCategoryList()
-
+    const categories = await getCategoryList();
     let paths = []
     categories.map(c => {
         paths = paths.concat(c.subCategories.map(s => ({

@@ -1,10 +1,12 @@
 const autoScratchRemovers = {
     title: 'Auto Scratch',
-    id: 'auto-scratch',
+    id: '10-best-auto-scratch',
     imageUrl: 'https://m.media-amazon.com/images/I/416BAwcCpRL._SL500_.jpg',
     link: '',
     categoryId: 'automotive',
     subCategoryId: 'car-care',
+    author: '',
+    date: '',
     products: [
         {
             name: 'Mothers 08408 California Gold Scratch Remover - 8 oz.',

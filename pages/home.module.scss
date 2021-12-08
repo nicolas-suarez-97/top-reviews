@@ -1,4 +1,10 @@
 @import "styles/globals.module";
+
+.title {
+  text-align: center;
+  margin: $separation-32 0;
+}
+
 .main {
   display: flex;
   flex-wrap: wrap;

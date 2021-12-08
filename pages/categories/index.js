@@ -2,7 +2,7 @@ import * as categoryService from "../api/categories"
 import Layout from "../../sections/layout/Layout";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import CategoryComponent from "../../components/CategoryComponent/CategoryComponent";
-
+import {getEnvUrl} from "../../utils/utils";
 
 const Categories = ({data}) => {
     return <>
@@ -22,9 +22,11 @@ const Categories = ({data}) => {
 }
 
 export async function getStaticProps() {
-    const data = categoryService.getCategoryList()
+    let response = await fetch(`${getEnvUrl()}/api/category`);
 
-    return { props: { data } }
+    let data = await response.json();
+
+    return { props: { data: data['message'] } }
 }
 
 export default Categories

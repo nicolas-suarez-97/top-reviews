@@ -23,9 +23,9 @@ const ProductCard = ({product, className}) => {
                 </div>
                 <div className={styles.product__info}>
                     <p className={styles.product__title}>{name}</p>
-                    <Link href={storeUrl} passHref>
+                    <a href={storeUrl} target="_blank" rel="noreferrer">
                         <p className={styles.product__store}>{store}</p>
-                    </Link>
+                    </a>
                 </div>
             </div>
             <div className={styles.product__more}>

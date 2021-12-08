@@ -3,7 +3,6 @@ import {getCategory} from "./[category]";
 import {getSubcategory} from "./[category]/[subcategory]";
 
 export default function handler(req, res) {
-
     res.status(200).json(categories.map(c => {
         return {
             name: c.name,
