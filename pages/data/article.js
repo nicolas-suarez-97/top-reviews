@@ -355,7 +355,7 @@ const Article = ({categories, subCategories, articles}) => {
     );
 }
 
-export async function getStaticProps({params}) {
+export async function getServerSideProps({params}) {
 
     let categories = await getCollection('category', null)
     let subCategories = await getCollection('subcategory', null)

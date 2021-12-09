@@ -120,7 +120,7 @@ const Category = ({data}) => {
     );
 }
 
-export async function getStaticProps({params}) {
+export async function getServerSideProps({params}) {
     let category = await getCollection('category', null)
 
     return {
