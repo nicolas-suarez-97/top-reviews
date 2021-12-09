@@ -4,7 +4,7 @@ import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import {getCollection} from "../../../utils/mongodb";
 
 const Subcategory = ({data, category, subCategory}) => {
-    let title = subCategory[0].toUpperCase() + subCategory.slice(1).replaceAll('-', ' ')
+    let title = subCategory[0].toUpperCase() + subCategory.slice(1).replace(/-/g, ' ')
     return <>
         <Layout>
             <h1>{title}</h1>
