@@ -1,11 +1,11 @@
-import {getEnvUrl} from "../../utils/utils";
 import {useState} from "react";
 import {useRouter} from "next/router";
 import DataTable from 'react-data-table-component';
 import {addCategory, updateCategory, deleteCategory} from "../../services/categoryService";
 import Data from "./index";
+import {getCollection} from "../../utils/mongodb";
 
-const category = ({data}) => {
+const Category = ({data}) => {
     const router = useRouter();
     const [loading, setLoading] = useState(false);
     const [category, setCategory] = useState({
@@ -121,17 +121,14 @@ const category = ({data}) => {
 }
 
 export async function getStaticProps({params}) {
-
-    let response = await fetch(`${getEnvUrl()}/api/category`);
-
-    let data = await response.json();
+    let category = await getCollection('category', null)
 
     return {
         props: {
-            data: data['message']
+            data: category
         }
     }
 }
 
 
-export default category;
+export default Category;

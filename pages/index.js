@@ -1,14 +1,11 @@
 import Layout from "../sections/layout/Layout";
 import ImageCard from "../components/ImageCard";
 import styles from "./home.module.scss";
-import * as categoryService from "./api/categories";
-import * as articleService from "./api/articles";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import CategoryComponent from "../components/CategoryComponent/CategoryComponent";
+import {getCollection} from "../utils/mongodb";
 
-export default function Home() {
-    const articles = articleService.getArticles()
-    const data = categoryService.getCategoryList()
+export default function Home({categories, articles}) {
 
     return (
         <>
@@ -21,7 +18,7 @@ export default function Home() {
                             image={articles[0].imageUrl}
                             title={articles[0].title}
                             elevation={2}
-                            link={articles[0].link}
+                            link={`/${articles[0].id}`}
                             className={styles.image}
                         />
                         <div className={styles.secondary}>
@@ -30,7 +27,7 @@ export default function Home() {
                                 image={articles[1].imageUrl}
                                 title={articles[1].title}
                                 elevation={2}
-                                link={articles[1].link}
+                                link={`/${articles[1].id}`}
                                 className={styles.image}
                             />
                             <ImageCard
@@ -92,7 +89,7 @@ export default function Home() {
                         columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
                     >
                         <Masonry>
-                            {data.map(d => (
+                            {categories.map(d => (
                                 <CategoryComponent key={d.id} category={d} />
                             ))}
                         </Masonry>
@@ -101,4 +98,11 @@ export default function Home() {
             </Layout>
         </>
     )
+}
+
+export async function getStaticProps({params}) {
+    let articles = await getCollection('article',null)
+    let categories = await getCollection('category',null)
+
+    return { props: { articles, categories } }
 }

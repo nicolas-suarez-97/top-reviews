@@ -1,11 +1,11 @@
-import {getEnvUrl} from "../../utils/utils";
 import {useState} from "react";
 import {useRouter} from "next/router";
 import DataTable from 'react-data-table-component';
 import {addArticle, updateArticle, deleteArticle} from "../../services/articleService";
 import Data from "./index";
+import {getCollection} from "../../utils/mongodb";
 
-const article = ({categories, subCategories, articles}) => {
+const Article = ({categories, subCategories, articles}) => {
     const router = useRouter();
     const [index, setIndex] = useState(-1);
     const [subCategoryList, setSubCategoryList] = useState([]);
@@ -357,21 +357,17 @@ const article = ({categories, subCategories, articles}) => {
 
 export async function getStaticProps({params}) {
 
-    let categoryList = await fetch(`${getEnvUrl()}/api/category`);
-    let subCategorylist = await fetch(`${getEnvUrl()}/api/subcategory`);
-    let articleList = await fetch(`${getEnvUrl()}/api/article`);
-    let categories = await categoryList.json();
-    let subCategories = await subCategorylist.json();
-    let articles = await articleList.json();
+    let categories = await getCollection('category', null)
+    let subCategories = await getCollection('subcategory', null)
+    let article = await getCollection('article', null)
 
     return {
         props: {
-            categories: categories['message'],
-            subCategories: subCategories['message'],
-            articles: articles['message'],
+            categories: categories,
+            subCategories: subCategories,
+            articles: article,
         }
     }
 }
 
-
-export default article;
+export default Article;

@@ -1,12 +1,11 @@
-import {getEnvUrl} from "../../utils/utils";
 import {useState} from "react";
 import {useRouter} from "next/router";
 import DataTable from 'react-data-table-component';
 import {addSubCategory, updateSubCategory, deleteSubCategory} from "../../services/subCategoryService";
 import Data from "./index";
-import category from "./category";
+import {getCollection} from "../../utils/mongodb";
 
-const subCategory = ({categories, subCategories}) => {
+const SubCategory = ({categories, subCategories}) => {
     const router = useRouter();
     const [subCategory, setSubCategory] = useState({
         name: '',
@@ -139,18 +138,16 @@ const subCategory = ({categories, subCategories}) => {
 
 export async function getStaticProps({params}) {
 
-    let categoryList = await fetch(`${getEnvUrl()}/api/category`);
-    let subCategorylist = await fetch(`${getEnvUrl()}/api/subcategory`);
-    let categories = await categoryList.json();
-    let subCategories = await subCategorylist.json();
+    let categories = await getCollection('category', null)
+    let subCategories = await getCollection('subcategory', null)
 
     return {
         props: {
-            categories: categories['message'],
-            subCategories: subCategories['message']
+            categories: categories,
+            subCategories: subCategories
         }
     }
 }
 
 
-export default subCategory;
+export default SubCategory;

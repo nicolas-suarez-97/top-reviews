@@ -1,6 +1,20 @@
 import {connectToDatabase} from "../lib/mongodb";
 const ObjectId = require('mongodb').ObjectId;
 
+async function getCollection(collection, query) {
+    try {
+        let { db } = await connectToDatabase();
+        let response = await db
+            .collection(collection)
+            .find(query)
+            .sort({ creationDate: -1 })
+            .toArray();
+        return JSON.parse(JSON.stringify(response))
+    } catch (error) {
+        return error;
+    }
+}
+
 async function get(req, res, collection, query){
     try {
         let { db } = await connectToDatabase();
@@ -87,4 +101,5 @@ export {
     post,
     put,
     del,
+    getCollection,
 }

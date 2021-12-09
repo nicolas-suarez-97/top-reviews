@@ -1,10 +1,7 @@
-import Link from "next/link";
-import * as articleService from "./api/articles"
 import Layout from "../sections/layout/Layout";
 import styles from "./article.module.scss";
 import ProductCard from "../components/ProductCard";
-import {getArticleList} from "../services/articleService";
-import {getEnvUrl} from "../utils/utils";
+import {getCollection} from "../utils/mongodb";
 
 const Article = ({data}) => {
 
@@ -25,17 +22,15 @@ const Article = ({data}) => {
 
 
 export async function getStaticProps({params}) {
-    let response = await fetch(`${getEnvUrl()}/api/article?id=${params.article}`);
+    let article = await getCollection('article', {id: params.article})
 
-    let data = await response.json();
-    console.log(data)
-
-    return { props: { data: data['message'][0] } }
+    return { props: { data: article[0] } }
 }
 
 export async function getStaticPaths() {
 
-    const articles = await getArticleList()
+    let articles = await getCollection('article', null)
+
     const paths = articles.map(a => ({
         params: { article: a.id },
     }))
