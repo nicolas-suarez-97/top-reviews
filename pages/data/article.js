@@ -77,6 +77,12 @@ const Article = ({categories, subCategories, articles}) => {
 
     const productColumns = [
         {
+            name: 'Image',
+            selector: row => (
+                <img alt={row.name} src={row.imageUrl} height={100}/>
+            )
+        },
+        {
             name: 'Title',
             selector: row => row.name,
             sortable: true,
@@ -104,12 +110,6 @@ const Article = ({categories, subCategories, articles}) => {
         {
             name: 'ImageUrl',
             selector: row => row.imageUrl,
-        },
-        {
-            name: 'Image',
-            selector: row => (
-                <img alt={row.name} src={row.imageUrl} height={100}/>
-            )
         },
     ];
 
@@ -242,6 +242,17 @@ const Article = ({categories, subCategories, articles}) => {
             <img alt={article.name} src={article.imageUrl} height={100}/>
 
             <h3>Product</h3>
+            <button onClick={() => setProduct({
+                name: '',
+                store: '',
+                storeUrl: '',
+                price: '',
+                link: '',
+                imageUrl: '',
+                imageAlt: '',
+                rating: '',
+                number: '',
+            })}>x</button>
             <input
                 type="text"
                 value={product.name}
@@ -266,12 +277,12 @@ const Article = ({categories, subCategories, articles}) => {
                 placeholder='Store Url'
                 onChange={e => setProduct({...product, storeUrl: e.target.value})}
             />
-            <input
-                type="text"
-                value={product.price}
-                placeholder='Price'
-                onChange={e => setProduct({...product, price: e.target.value})}
-            />
+            {/*<input*/}
+            {/*    type="text"*/}
+            {/*    value={product.price}*/}
+            {/*    placeholder='Price'*/}
+            {/*    onChange={e => setProduct({...product, price: e.target.value})}*/}
+            {/*/>*/}
             <input
                 type="text"
                 value={product.link}
@@ -299,10 +310,16 @@ const Article = ({categories, subCategories, articles}) => {
             />
             <datalist id="rating">
                 <option value={5} />
+                <option value={4.9} />
+                <option value={4.8} />
+                <option value={4.7} />
+                <option value={4.6} />
+                <option value={4.5} />
+                <option value={4.4} />
+                <option value={4.3} />
+                <option value={4.2} />
+                <option value={4.1} />
                 <option value={4} />
-                <option value={3} />
-                <option value={2} />
-                <option value={1} />
             </datalist>
             <input
                 type="number"
@@ -341,7 +358,10 @@ const Article = ({categories, subCategories, articles}) => {
             <table>
                 {article.products.map(p => (
                     <tr key={p.name}>
+                        <td><h3>{p.number}</h3></td>
+                        <td><p>{p.rating}</p></td>
                         <td><h5>{p.name}</h5></td>
+                        <td><a href={p.storeUrl}>{p.storeUrl}</a></td>
                         <td><a href={p.link} target="_blank" rel="noreferrer" >{p.link}</a></td>
                         <td><button onClick={() => selectProduct(p)}>Select</button></td>
                         <td><button onClick={() => deleteProduct(p.name)}>Delete</button></td>
