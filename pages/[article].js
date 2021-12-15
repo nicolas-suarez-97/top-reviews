@@ -7,7 +7,7 @@ const Article = ({data}) => {
 
     return <>
         <Layout>
-            <h1 className={styles.title}>Top {data.title}</h1>
+            <h1 className={styles.title}>Top {data.products.length} best {data.title}</h1>
             <div className={styles.container}>
                 {data.products.map(p => (
                     <ProductCard

@@ -7,13 +7,22 @@
 
 .main {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+
+  @media (max-width: 935px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.primary {
+  display: flex;
+  margin-left: $separation-16;
 }
 
 .secondary {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .image {
