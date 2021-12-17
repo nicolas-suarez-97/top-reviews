@@ -7,7 +7,7 @@ import {getCollection} from "../utils/mongodb";
 import CategoryCard from "../components/CategoryCard/CategoryCard";
 
 export default function Home({categories, articles}) {
-    console.log(articles)
+
     return (
         <>
             <Layout>
@@ -62,7 +62,7 @@ export default function Home({categories, articles}) {
                 </div>
                 <h1>Articles</h1>
                 <ResponsiveMasonry
-                    columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
+                    columnsCountBreakPoints={{350: 1, 500: 2, 810: 3, 1050: 4}}
                 >
                     <Masonry>
                         {articles.map((d, index) => index > 4 ? (
@@ -78,7 +78,7 @@ export default function Home({categories, articles}) {
                 <div className={styles.categories}>
                     <h1>All Categories</h1>
                     <ResponsiveMasonry
-                        columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
+                        columnsCountBreakPoints={{350: 1, 500: 2, 810: 3, 1050: 4}}
                     >
                         <Masonry>
                             {categories.map(d => (

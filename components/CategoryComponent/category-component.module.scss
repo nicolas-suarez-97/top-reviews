@@ -35,3 +35,19 @@
     }
   }
 }
+
+@media (max-width: 500px) {
+  .main {
+    max-width: 100%;
+  }
+
+  .category {
+    justify-content: start;
+
+    & > h3 {
+      text-align: center;
+      width: 100%;
+    }
+  }
+
+}
