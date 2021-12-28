@@ -9,6 +9,7 @@ const Article = ({categories, subCategories, articles}) => {
     const router = useRouter();
     const [index, setIndex] = useState(-1);
     const [subCategoryList, setSubCategoryList] = useState([]);
+    const [urlId, setUrlId] = useState("");
     const [article, setArticle] = useState({
         title: '',
         id: '',
@@ -54,6 +55,10 @@ const Article = ({categories, subCategories, articles}) => {
         {
             name: 'ImageUrl',
             selector: row => row.imageUrl,
+        },
+        {
+            name: 'ProductNumber',
+            selector: row => row.products.length,
         },
         {
             name: 'Select',
@@ -242,17 +247,20 @@ const Article = ({categories, subCategories, articles}) => {
             <img alt={article.name} src={article.imageUrl} height={100}/>
 
             <h3>Product</h3>
-            <button onClick={() => setProduct({
-                name: '',
-                store: '',
-                storeUrl: '',
-                price: '',
-                link: '',
-                imageUrl: '',
-                imageAlt: '',
-                rating: '',
-                number: '',
-            })}>x</button>
+            <button onClick={() => {
+                setProduct({
+                    name: '',
+                    store: '',
+                    storeUrl: '',
+                    price: '',
+                    link: '',
+                    imageUrl: '',
+                    imageAlt: '',
+                    rating: '',
+                    number: '',
+                })
+                setUrlId("")
+            }}>x</button>
             <input
                 type="text"
                 value={product.name}
@@ -285,10 +293,20 @@ const Article = ({categories, subCategories, articles}) => {
             {/*/>*/}
             <input
                 type="text"
-                value={product.link}
-                placeholder='Link'
-                onChange={e => setProduct({...product, link: e.target.value})}
+                placeholder="url id"
+                value={urlId}
+                onChange={e => {
+                    setUrlId(e.target.value)
+                    setProduct({...product, link: `https://www.amazon.com/dp/${e.target.value}`})
+                }}
             />
+            {/*<input*/}
+            {/*    type="text"*/}
+            {/*    value={product.link}*/}
+            {/*    placeholder='Link'*/}
+            {/*    onChange={e => setProduct({...product, link: e.target.value})}*/}
+            {/*/>*/}
+            <p>{product.link}</p>
             <input
                 type="text"
                 value={product.imageUrl}
@@ -342,17 +360,22 @@ const Article = ({categories, subCategories, articles}) => {
             </datalist>
             <button onClick={() => addProduct()}>Add</button>
             <button onClick={() => updateProduct()}>Update</button>
-            <button onClick={() => setProduct({
-                name: '',
-                store: '',
-                storeUrl: '',
-                price: '',
-                link: '',
-                imageUrl: '',
-                imageAlt: '',
-                rating: '',
-                number: '',
-            })}>x</button>
+            <button onClick={() => {
+                setProduct({
+                    name: '',
+                    store: '',
+                    storeUrl: '',
+                    price: '',
+                    link: '',
+                    imageUrl: '',
+                    imageAlt: '',
+                    rating: '',
+                    number: '',
+                })
+                setUrlId("")
+            }
+            }>x</button>
+            <br />
             <img alt={product.name} src={product.imageUrl} height={100}/>
 
             <table>
