@@ -6,7 +6,7 @@ const CategoryComponent = ({category}) => {
     return (
         <div key={category.id} className={styles.main}>
             <Link href={`/categories/${category.id}`}  passHref>
-                <a className={styles.category}>
+                <div className={styles.category}>
                     <ImageCard
                         imageAlt={category.name}
                         image={category.imageUrl}
@@ -15,12 +15,12 @@ const CategoryComponent = ({category}) => {
                         className={styles.link}
                     />
                     <h3>{category.name}</h3>
-                </a>
+                </div>
             </Link>
             <div className={styles.subcategories}>
                 {category.subCategories.map((s) => (
-                    <Link href={`/categories/${category.id}/${s.id}`} key={s.id}>
-                        <a className={styles.subcategories__name}>{s.name}</a>
+                    <Link href={`/categories/${category.id}/${s.id}`} key={s.id} passHref>
+                        <div className={styles.subcategories__name}>{s.name}</div>
                     </Link>
                 ))}
             </div>

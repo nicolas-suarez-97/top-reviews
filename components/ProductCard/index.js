@@ -1,7 +1,6 @@
 import React from "react";
 import ImageCard from "../ImageCard";
 import styles from "./styles.module.scss";
-import Link from "next/link";
 import {getElevation} from "../../utils/utils";
 
 const ProductCard = ({product, className}) => {
@@ -30,9 +29,9 @@ const ProductCard = ({product, className}) => {
             </div>
             <div className={styles.product__more}>
                 <p className={styles.product__rating}>{rating}</p>
-                <Link href={link} passHref>
+                <a href={link} target="_blank" rel="noreferrer">
                     <p className={styles.product__moreInfo}>More Info</p>
-                </Link>
+                </a>
             </div>
         </a>
     );

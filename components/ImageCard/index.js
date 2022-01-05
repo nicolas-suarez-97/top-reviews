@@ -8,13 +8,13 @@ const ImageCard = ({size, image, title, elevation, link, imageAlt, className}) =
     const cardSize = getImageCardSize(size)
 
     let cardElevation = getElevation(elevation)
-    const myLoader = ({ src, width, quality }) => {
-        return `${image}?w=${width}&q=${quality || 75}`
+    const myLoader = () => {
+        return `${image}?w=&q=${75}`
     }
 
     return image !== null && image !== "" ? (
-        <Link href={link}>
-            <a className={`${styles.card} ${cardSize} ${cardElevation} ${className}`}>
+        <Link href={link} passHref>
+            <div className={`${styles.card} ${cardSize} ${cardElevation} ${className}`}>
                 <Image
                     className={`${styles.card__image}`}
                     src={image}
@@ -29,7 +29,7 @@ const ImageCard = ({size, image, title, elevation, link, imageAlt, className}) =
                         </div>
                     ) : null
                 }
-            </a>
+            </div>
         </Link>
     ) : null
 };

@@ -12,6 +12,7 @@
   border-radius: $border-radius-2;
   box-shadow: $card-elevation-2;
   padding: $separation-16;
+  cursor: pointer;
 }
 
 .link {
@@ -29,6 +30,7 @@
   &__name {
     margin-bottom: $separation-8;
     transition: all .1s ease-in-out;
+    cursor: pointer;
 
     &:hover {
       font-weight: bold;

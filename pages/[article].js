@@ -11,7 +11,7 @@ const Article = ({data}) => {
             <div className={styles.container}>
                 {data.products.map(p => (
                     <ProductCard
-                        key={p.id}
+                        key={p.name}
                         product={p}
                     />
                 ))}
