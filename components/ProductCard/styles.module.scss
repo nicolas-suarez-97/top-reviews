@@ -28,6 +28,8 @@
 
   &__imageInfo {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   &__image {
@@ -76,6 +78,22 @@
     transition: all 0.3s ease-in-out;
     &:hover {
       text-decoration: underline;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .product {
+    margin: $separation-24 0;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    &__number {
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: -$separation-8;
+      top: -$separation-8;
     }
   }
 }

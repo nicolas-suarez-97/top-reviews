@@ -70,3 +70,14 @@
   height: $extra-small-card;
   width: $extra-small-card;
 }
+
+@media (max-width: 500px) {
+  .largeSquare {
+    height: $medium-card-width;
+    width: $medium-card-width;
+  }
+  .smallSquare {
+    height: $medium-card-width;
+    width: $medium-card-width;
+  }
+}

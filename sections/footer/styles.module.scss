@@ -13,10 +13,13 @@
     justify-content: space-evenly;
     align-items: center;
     height: 100%;
+    flex-wrap: wrap;
+    padding: 0;
   }
 
   &__options > li {
     text-transform: uppercase;
+    margin: 0 8px;
   }
 }
 

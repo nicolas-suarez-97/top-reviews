@@ -39,3 +39,9 @@
 .categories {
   margin-top: $separation-62;
 }
+
+@media (max-width: 500px) {
+  .primary {
+    margin: 0;
+  }
+}
