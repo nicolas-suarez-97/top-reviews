@@ -4,6 +4,7 @@ import DataTable from 'react-data-table-component';
 import {addArticle, updateArticle, deleteArticle} from "../../services/articleService";
 import Data from "./index";
 import {getCollection} from "../../utils/mongodb";
+import styles from "./article.module.scss";
 
 const Article = ({categories, subCategories, articles}) => {
     const router = useRouter();
@@ -149,236 +150,236 @@ const Article = ({categories, subCategories, articles}) => {
     return (
         <div>
             <Data />
-            <h1>Add Article</h1>
-            <input
-                type="text"
-                value={article.title}
-                placeholder='Title'
-                onChange={e => {
-                    let id = e.target.value.toLowerCase().replaceAll(' ', '-')
-                    setArticle({
-                        ...article,
-                        title: e.target.value,
-                        id: id,
-                    })
-                }}
-            />
-            <input
-                type="text"
-                value={article.id}
-                placeholder='id'
-                onChange={e => setArticle({...article, id: e.target.value})}
-            />
-            <input
-                type="text"
-                value={article.imageUrl}
-                placeholder='ImageUrl'
-                onChange={e => setArticle({...article, imageUrl: e.target.value})}
-            />
-            <input
-                list="categories"
-                placeholder='Category'
-                value={article.category}
-                onChange={e => {
-                    const category = categories.find(c => c.id === e.target.value)
-                    category != null ?
+            <div className={styles.test}>
+                <h1>Add Article</h1>
+                <input
+                    type="text"
+                    value={article.title}
+                    placeholder='Title'
+                    onChange={e => {
+                        let id = e.target.value.toLowerCase().replaceAll(' ', '-')
                         setArticle({
                             ...article,
-                            category: category.name,
-                            categoryId: category.id,
+                            title: e.target.value,
+                            id: id,
                         })
-                        : setArticle({
-                            ...article,
-                            category: e.target.value,
-                        });
-                    category != null ?
-                        setSubCategoryList(subCategories.filter(s => s.categoryId === category.id))
-                        : null;
-                }}
-            />
+                    }}
+                />
+                <input
+                    type="text"
+                    value={article.id}
+                    placeholder='id'
+                    onChange={e => setArticle({...article, id: e.target.value})}
+                />
+                <input
+                    type="text"
+                    value={article.imageUrl}
+                    placeholder='ImageUrl'
+                    onChange={e => setArticle({...article, imageUrl: e.target.value})}
+                />
+                <input
+                    list="categories"
+                    placeholder='Category'
+                    value={article.category}
+                    onChange={e => {
+                        const category = categories.find(c => c.id === e.target.value)
+                        category != null ?
+                            setArticle({
+                                ...article,
+                                category: category.name,
+                                categoryId: category.id,
+                            })
+                            : setArticle({
+                                ...article,
+                                category: e.target.value,
+                            });
+                        category != null ?
+                            setSubCategoryList(subCategories.filter(s => s.categoryId === category.id))
+                            : null;
+                    }}
+                />
 
-            <datalist id="categories">
-                {categories.map(c => (
-                    <option value={c.id} key={c._id}>{c.name}</option>
-                ))}
-            </datalist>
+                <datalist id="categories">
+                    {categories.map(c => (
+                        <option value={c.id} key={c._id}>{c.name}</option>
+                    ))}
+                </datalist>
 
-            <input
-                list="subCategory"
-                placeholder='SubCategory'
-                value={article.subCategory}
-                onChange={e => {
-                    const subCategory = subCategoryList.find(c => c.id === e.target.value)
-                    subCategory != null
-                        ? setArticle({
-                            ...article,
-                            subCategory: subCategory.name,
-                            subCategoryId: subCategory.id,
-                        })
-                        : setArticle({
-                            ...article,
-                            subCategory: e.target.value,
-                        });
-                }}
-            />
+                <input
+                    list="subCategory"
+                    placeholder='SubCategory'
+                    value={article.subCategory}
+                    onChange={e => {
+                        const subCategory = subCategoryList.find(c => c.id === e.target.value)
+                        subCategory != null
+                            ? setArticle({
+                                ...article,
+                                subCategory: subCategory.name,
+                                subCategoryId: subCategory.id,
+                            })
+                            : setArticle({
+                                ...article,
+                                subCategory: e.target.value,
+                            });
+                    }}
+                />
 
-            <datalist id="subCategory">
-                {subCategoryList.map(c => (
-                    <option value={c.id} key={c._id}>{c.name}</option>
-                ))}
-            </datalist>
+                <datalist id="subCategory">
+                    {subCategoryList.map(c => (
+                        <option value={c.id} key={c._id}>{c.name}</option>
+                    ))}
+                </datalist>
 
-            <button onClick={() => addArticle(article, router)}>Add</button>
-            <button onClick={() => updateArticle(article, router)}>Update</button>
-            <button onClick={() => setArticle(
-                {
-                    title: '',
-                    id: '',
-                    imageUrl: '',
-                    link: '',
-                    category: '',
-                    categoryId: '',
-                    subCategory: '',
-                    subCategoryId: '',
-                    author: '',
-                    products: []
-                }
-            )}>X</button>
-            <img alt={article.name} src={article.imageUrl} height={100}/>
-
-            <h3>Product</h3>
-            <button onClick={() => {
-                setProduct({
-                    name: '',
-                    store: '',
-                    storeUrl: '',
-                    price: '',
-                    link: '',
-                    imageUrl: '',
-                    imageAlt: '',
-                    rating: '',
-                    number: '',
-                })
-                setUrlId("")
-            }}>x</button>
-            <input
-                type="text"
-                value={product.name}
-                placeholder='Product Name'
-                onChange={e => {
+                <button onClick={() => addArticle(article, router)}>Add</button>
+                <button onClick={() => updateArticle(article, router)}>Update</button>
+                <button onClick={() => setArticle(
+                    {
+                        title: '',
+                        id: '',
+                        imageUrl: '',
+                        link: '',
+                        category: '',
+                        categoryId: '',
+                        subCategory: '',
+                        subCategoryId: '',
+                        author: '',
+                        products: []
+                    }
+                )}>X</button>
+                <img alt={article.name} src={article.imageUrl} height={100}/>
+                <h3>Product</h3>
+                <button onClick={() => {
                     setProduct({
-                        ...product,
-                        name: e.target.value,
-                        imageAlt: e.target.value,
+                        name: '',
+                        store: '',
+                        storeUrl: '',
+                        price: '',
+                        link: '',
+                        imageUrl: '',
+                        imageAlt: '',
+                        rating: '',
+                        number: '',
                     })
-                }}
-            />
-            <input
-                type="text"
-                value={product.store}
-                placeholder='Store'
-                onChange={e => setProduct({...product, store: e.target.value})}
-            />
-            <input
-                type="text"
-                value={product.storeUrl}
-                placeholder='Store Url'
-                onChange={e => setProduct({...product, storeUrl: e.target.value})}
-            />
-            {/*<input*/}
-            {/*    type="text"*/}
-            {/*    value={product.price}*/}
-            {/*    placeholder='Price'*/}
-            {/*    onChange={e => setProduct({...product, price: e.target.value})}*/}
-            {/*/>*/}
-            <input
-                type="text"
-                placeholder="url id"
-                value={urlId}
-                onChange={e => {
-                    setUrlId(e.target.value)
-                    setProduct({...product, link: `https://www.amazon.com/dp/${e.target.value}`})
-                }}
-            />
-            {/*<input*/}
-            {/*    type="text"*/}
-            {/*    value={product.link}*/}
-            {/*    placeholder='Link'*/}
-            {/*    onChange={e => setProduct({...product, link: e.target.value})}*/}
-            {/*/>*/}
-            <p>{product.link}</p>
-            <input
-                type="text"
-                value={product.imageUrl}
-                placeholder='Image Url'
-                onChange={e => setProduct({...product, imageUrl: e.target.value})}
-            />
-            <input
-                type="text"
-                value={product.imageAlt}
-                placeholder='Image Alt'
-                onChange={e => setProduct({...product, imageAlt: e.target.value})}
-            />
-            <input
-                type="number"
-                list='rating'
-                value={product.rating}
-                placeholder='Rating'
-                onChange={e => setProduct({...product, rating: e.target.value})}
-            />
-            <datalist id="rating">
-                <option value={5} />
-                <option value={4.9} />
-                <option value={4.8} />
-                <option value={4.7} />
-                <option value={4.6} />
-                <option value={4.5} />
-                <option value={4.4} />
-                <option value={4.3} />
-                <option value={4.2} />
-                <option value={4.1} />
-                <option value={4} />
-            </datalist>
-            <input
-                type="number"
-                list='numbers'
-                value={product.number}
-                placeholder='Number'
-                onChange={e => setProduct({...product, number: e.target.value})}
-            />
-            <datalist id="numbers">
-                <option value={1} />
-                <option value={2} />
-                <option value={3} />
-                <option value={4} />
-                <option value={5} />
-                <option value={6} />
-                <option value={7} />
-                <option value={8} />
-                <option value={9} />
-                <option value={10} />
-            </datalist>
-            <button onClick={() => addProduct()}>Add</button>
-            <button onClick={() => updateProduct()}>Update</button>
-            <button onClick={() => {
-                setProduct({
-                    name: '',
-                    store: '',
-                    storeUrl: '',
-                    price: '',
-                    link: '',
-                    imageUrl: '',
-                    imageAlt: '',
-                    rating: '',
-                    number: '',
-                })
-                setUrlId("")
-            }
-            }>x</button>
-            <br />
-            <img alt={product.name} src={product.imageUrl} height={100}/>
+                    setUrlId("")
+                }}>x</button>
+                <input
+                    type="text"
+                    value={product.name}
+                    placeholder='Product Name'
+                    onChange={e => {
+                        setProduct({
+                            ...product,
+                            name: e.target.value,
+                            imageAlt: e.target.value,
+                        })
+                    }}
+                />
+                <input
+                    type="text"
+                    value={product.store}
+                    placeholder='Store'
+                    onChange={e => setProduct({...product, store: e.target.value})}
+                />
+                <input
+                    type="text"
+                    value={product.storeUrl}
+                    placeholder='Store Url'
+                    onChange={e => setProduct({...product, storeUrl: e.target.value})}
+                />
+                {/*<input*/}
+                {/*    type="text"*/}
+                {/*    value={product.price}*/}
+                {/*    placeholder='Price'*/}
+                {/*    onChange={e => setProduct({...product, price: e.target.value})}*/}
+                {/*/>*/}
+                <input
+                    type="text"
+                    placeholder="url id"
+                    value={urlId}
+                    onChange={e => {
+                        setUrlId(e.target.value)
+                        setProduct({...product, link: `https://www.amazon.com/dp/${e.target.value}`})
+                    }}
+                />
+                {/*<input*/}
+                {/*    type="text"*/}
+                {/*    value={product.link}*/}
+                {/*    placeholder='Link'*/}
+                {/*    onChange={e => setProduct({...product, link: e.target.value})}*/}
+                {/*/>*/}
+                <p>{product.link}</p>
+                <textarea
+                    type="text"
+                    value={product.imageUrl}
+                    placeholder='Image Url'
+                    onChange={e => setProduct({...product, imageUrl: e.target.value})}
+                />
+                <input
+                    type="text"
+                    value={product.imageAlt}
+                    placeholder='Image Alt'
+                    onChange={e => setProduct({...product, imageAlt: e.target.value})}
+                />
+                <input
+                    type="number"
+                    list='rating'
+                    value={product.rating}
+                    placeholder='Rating'
+                    onChange={e => setProduct({...product, rating: e.target.value})}
+                />
+                <datalist id="rating">
+                    <option value={5} />
+                    <option value={4.9} />
+                    <option value={4.8} />
+                    <option value={4.7} />
+                    <option value={4.6} />
+                    <option value={4.5} />
+                    <option value={4.4} />
+                    <option value={4.3} />
+                    <option value={4.2} />
+                    <option value={4.1} />
+                    <option value={4} />
+                </datalist>
+                <input
+                    type="number"
+                    list='numbers'
+                    value={product.number}
+                    placeholder='Number'
+                    onChange={e => setProduct({...product, number: e.target.value})}
+                />
+                <datalist id="numbers">
+                    <option value={1} />
+                    <option value={2} />
+                    <option value={3} />
+                    <option value={4} />
+                    <option value={5} />
+                    <option value={6} />
+                    <option value={7} />
+                    <option value={8} />
+                    <option value={9} />
+                    <option value={10} />
+                </datalist>
+                <button onClick={() => addProduct()}>Add</button>
+                <button onClick={() => updateProduct()}>Update</button>
+                <button onClick={() => {
+                    setProduct({
+                        name: '',
+                        store: '',
+                        storeUrl: '',
+                        price: '',
+                        link: '',
+                        imageUrl: '',
+                        imageAlt: '',
+                        rating: '',
+                        number: '',
+                    })
+                    setUrlId("")
+                }
+                }>x</button>
+                <img alt={product.name} src={product.imageUrl} height={100}/>
 
-            <table>
+            </div>
+            <table className={styles.container}>
                 {article.products.map(p => (
                     <tr key={p.name}>
                         <td><h3>{p.number}</h3></td>
