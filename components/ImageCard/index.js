@@ -8,11 +8,20 @@ const ImageCard = ({size, image, title, elevation, link, imageAlt, className}) =
     const cardSize = getImageCardSize(size)
 
     let cardElevation = getElevation(elevation)
+    const myLoader = ({ src, width, quality }) => {
+        return `${image}?w=${width}&q=${quality || 75}`
+    }
 
     return image !== null && image !== "" ? (
         <Link href={link}>
             <a className={`${styles.card} ${cardSize} ${cardElevation} ${className}`}>
-                <Image className={`${styles.card__image}`} src={image} alt={imageAlt} layout="fill"/>
+                <Image
+                    className={`${styles.card__image}`}
+                    src={image}
+                    alt={imageAlt}
+                    layout="fill"
+                    loader={myLoader}
+                />
                 {
                     title ? (
                         <div className={styles.card__shadow}>
