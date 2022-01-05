@@ -2,11 +2,12 @@ import Layout from "../../sections/layout/Layout";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import CategoryComponent from "../../components/CategoryComponent/CategoryComponent";
 import {getCollection} from "../../utils/mongodb";
+import styles from "./styles.module.scss";
 
 const Categories = ({data}) => {
     return <>
         <Layout>
-            <h1>All Categories</h1>
+            <h1 className={styles.title}>All Categories</h1>
             <ResponsiveMasonry
                 columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
             >

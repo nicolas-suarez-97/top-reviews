@@ -95,5 +95,30 @@
       left: -$separation-8;
       top: -$separation-8;
     }
+
+    &__title {
+      font-size: 16px;
+      text-align: center;
+    }
+
+    &__store {
+      font-size: 14px;
+      transition: all 0.3s ease-in-out;
+      font-weight: bold;
+      text-align: center;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    &__moreInfo {
+      transition: all 0.3s ease-in-out;
+      font-size: 14px;
+      margin: 0 0 8px 0;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }

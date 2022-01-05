@@ -1,2 +1,10 @@
 @import '../../../styles/globals.module';
 
+.title {
+  @media (max-width: 500px) {
+    text-align: center;
+  }
+
+}
+
+

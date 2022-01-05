@@ -4,5 +4,11 @@
   margin: $separation-48 0;
 }
 
-.container {
+@media (max-width: 500px) {
+  .title {
+    text-align: center;
+  }
+  .container {
+    margin: 0 $separation-8;
+  }
 }

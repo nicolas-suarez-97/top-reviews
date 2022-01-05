@@ -2,12 +2,13 @@ import Layout from "../../../sections/layout/Layout";
 import CategoryCard from "../../../components/CategoryCard/CategoryCard";
 import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import {getCollection} from "../../../utils/mongodb";
+import styles from "./index.module.scss"
 
 const Subcategory = ({data, category, subCategory}) => {
     let title = subCategory[0].toUpperCase() + subCategory.slice(1).replace(/-/g, ' ')
     return <>
         <Layout>
-            <h1>{title}</h1>
+            <h1 className={styles.title}>{title}</h1>
             <ResponsiveMasonry
                 columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
             >

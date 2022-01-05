@@ -73,11 +73,12 @@
 
 @media (max-width: 500px) {
   .largeSquare {
-    height: $medium-card-width;
-    width: $medium-card-width;
+    height: 300px;
+    width: 300px;
   }
   .smallSquare {
-    height: $medium-card-width;
-    width: $medium-card-width;
+    height: 136px;
+    width: 136px;
+    font-size: 7px;
   }
 }
