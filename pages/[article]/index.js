@@ -1,9 +1,9 @@
-import Layout from "../sections/layout/Layout";
+import Layout from "../../sections/layout/Layout";
 import styles from "./article.module.scss";
-import ProductCard from "../components/ProductCard";
-import {getCollection} from "../utils/mongodb";
+import ProductCard from "../../components/ProductCard";
+import {getCollection} from "../../utils/mongodb";
 
-const Article = ({data}) => {
+const Index = ({data}) => {
 
     return <>
         <Layout>
@@ -39,4 +39,4 @@ export async function getStaticPaths() {
 }
 
 
-export default Article
+export default Index

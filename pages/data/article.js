@@ -149,8 +149,8 @@ const Article = ({categories, subCategories, articles}) => {
 
     return (
         <div>
-            <Data />
             <div className={styles.test}>
+                <Data />
                 <h1>Add Article</h1>
                 <input
                     type="text"

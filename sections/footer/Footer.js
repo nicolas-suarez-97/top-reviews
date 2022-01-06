@@ -5,12 +5,12 @@ import Link from "next/link";
 const Footer = () => {
     const items = [
         'about',
-        'faq',
-        'privacy',
-        'terms',
+        //'faq',
+        //'privacy',
+        //'terms',
         'disclaimer',
-        'support us',
-        'contact',
+        //'support us',
+        //'contact',
         'categories',
     ];
     return (

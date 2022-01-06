@@ -1,0 +1,20 @@
+@import "../../styles/globals.module";
+
+.container {
+  box-shadow: $card-elevation-2;
+  border-radius: $border-radius-2;
+  padding: $separation-8 $separation-24;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  text-align: justify;
+  font-size: 18px;
+  padding: 0 $separation-32;
+
+  @media (max-width: 500px) {
+    padding: 0;
+  }
+}
