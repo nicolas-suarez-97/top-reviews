@@ -7,15 +7,15 @@
   width: 100%;
   justify-content: space-between;
   position: relative;
-  margin: $separation-24 $separation-16;
+  margin: $separation-24 0;
 
   &__number {
     position: absolute;
     left: -$separation-16;
     top: -$separation-16;
     background-color: red;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;

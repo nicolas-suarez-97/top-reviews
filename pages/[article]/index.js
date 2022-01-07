@@ -2,12 +2,19 @@ import Layout from "../../sections/layout/Layout";
 import styles from "./article.module.scss";
 import ProductCard from "../../components/ProductCard";
 import {getCollection} from "../../utils/mongodb";
+import BreadcrumbComponent from "../../components/BreadcrumbComponent";
+import {months} from "../../lib/constants";
 
 const Index = ({data}) => {
-
+    const title = `Top ${data.products.length} Best ${data.title}`;
+    const date = `of ${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
+    const steps = ['Categories', data.category, data.subCategory, title];
+    const stepIds = ['categories', `categories/${data.categoryId}`, `categories/${data.categoryId}/${data.subCategoryId}`, data.id];
+    console.log(data);
     return <>
         <Layout>
-            <h1 className={styles.title}>Top {data.products.length} best {data.title}</h1>
+            <BreadcrumbComponent steps={steps} stepIds={stepIds}/>
+            <h1 className={styles.title}>{title} {date}</h1>
             <div className={styles.container}>
                 {data.products.map(p => (
                     <ProductCard

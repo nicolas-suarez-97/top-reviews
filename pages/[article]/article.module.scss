@@ -1,13 +1,14 @@
 @import "../../styles/globals.module";
 
 .title {
-  margin: $separation-48 0;
+  margin: $separation-24 0 $separation-48 0;
 }
 
 @media (max-width: 500px) {
   .title {
     text-align: center;
   }
+
   .container {
     margin: 0 $separation-8;
   }

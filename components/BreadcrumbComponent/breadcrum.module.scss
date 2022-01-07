@@ -1,0 +1,31 @@
+@import "../../styles/globals.module";
+
+.breadcrumb {
+  font-size: $separation-16;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: $separation-24 0;
+  list-style: none;
+  padding: 0;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:after {
+      font-family: "Material Icons";
+      content: "keyboard_arrow_right";
+      font-size: 18px;
+      margin: $separation-8;
+      font-weight: bold;
+      cursor: auto;
+    }
+  }
+  &__last {
+    font-weight: bold;
+    text-decoration: none;
+  }
+}
