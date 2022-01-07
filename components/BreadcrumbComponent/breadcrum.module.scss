@@ -7,7 +7,10 @@
   align-items: center;
   margin: $separation-24 0;
   list-style: none;
-  padding: 0;
+  box-shadow: $card-elevation-2;
+  border-radius: $border-radius-1;
+  padding: $separation-8 $separation-16;
+
 
   &__item {
     display: flex;
@@ -27,5 +30,11 @@
   &__last {
     font-weight: bold;
     text-decoration: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .breadcrumb {
+    margin: 0 $separation-8;
   }
 }

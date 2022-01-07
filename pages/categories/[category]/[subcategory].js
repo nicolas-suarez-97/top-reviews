@@ -12,8 +12,8 @@ const Subcategory = ({data, category, subCategory}) => {
     const stepIds = ['categories', `categories/${category}`, `categories/${category}/${subCategory}`];
     return <>
         <Layout>
-            <BreadcrumbComponent steps={steps} stepIds={stepIds} />
             <h1 className={styles.title}>{title}</h1>
+            <BreadcrumbComponent steps={steps} stepIds={stepIds} />
             <ResponsiveMasonry
                 columnsCountBreakPoints={{350: 1, 580: 2, 810: 3, 1050: 4}}
             >

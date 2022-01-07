@@ -13,8 +13,8 @@ const Index = ({data}) => {
     console.log(data);
     return <>
         <Layout>
-            <BreadcrumbComponent steps={steps} stepIds={stepIds}/>
             <h1 className={styles.title}>{title} {date}</h1>
+            <BreadcrumbComponent steps={steps} stepIds={stepIds}/>
             <div className={styles.container}>
                 {data.products.map(p => (
                     <ProductCard
@@ -23,6 +23,7 @@ const Index = ({data}) => {
                     />
                 ))}
             </div>
+            <BreadcrumbComponent steps={steps} stepIds={stepIds}/>
         </Layout>
     </>
 }
