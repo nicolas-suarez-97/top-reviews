@@ -1,9 +1,12 @@
+import React, {useEffect} from "react";
 import Layout from "../../sections/layout/Layout";
 import styles from "./article.module.scss";
 import ProductCard from "../../components/ProductCard";
 import {getCollection} from "../../utils/mongodb";
 import BreadcrumbComponent from "../../components/BreadcrumbComponent";
 import {months} from "../../lib/constants";
+import ContentTable from "../../components/ContentTable";
+import RelatedArticles from "../../components/RelatedArticles";
 
 const Index = ({data}) => {
     const title = `Top ${data.products.length} Best ${data.title}`;
@@ -13,7 +16,7 @@ const Index = ({data}) => {
     console.log(data);
     return <>
         <Layout>
-            <h1 className={styles.title}>{title} {date}</h1>
+            <h1 className={styles.title} id="title">{title} {date}</h1>
             <BreadcrumbComponent steps={steps} stepIds={stepIds}/>
             <div className={styles.container}>
                 {data.products.map(p => (

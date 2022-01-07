@@ -1,0 +1,27 @@
+@import "../../styles/globals.module";
+
+.container {
+  transform: translate(-200px, 0px);
+  box-shadow: $card-elevation-2;
+  border-radius: $border-radius-2;
+
+  &__list {
+    list-style: none;
+    padding: $separation-24;
+    margin: 0;
+  }
+
+  &__list > li {
+    &:hover {
+      font-weight: bold;
+    }
+  }
+}
+
+.fixed {
+  position: fixed;
+}
+
+.absolute {
+  position: absolute;
+}
