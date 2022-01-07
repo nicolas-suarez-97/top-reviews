@@ -8,12 +8,11 @@ import {months} from "../../lib/constants";
 import ContentTable from "../../components/ContentTable";
 import RelatedArticles from "../../components/RelatedArticles";
 
-const Index = ({data}) => {
+const Index = ({data, related}) => {
     const title = `Top ${data.products.length} Best ${data.title}`;
     const date = `of ${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
     const steps = ['Categories', data.category, data.subCategory, title];
     const stepIds = ['categories', `categories/${data.categoryId}`, `categories/${data.categoryId}/${data.subCategoryId}`, data.id];
-    console.log(data);
     return <>
         <Layout>
             <h1 className={styles.title} id="title">{title} {date}</h1>
@@ -26,6 +25,7 @@ const Index = ({data}) => {
                     />
                 ))}
             </div>
+            <RelatedArticles articles={related} />
             <BreadcrumbComponent steps={steps} stepIds={stepIds}/>
         </Layout>
     </>
@@ -34,8 +34,9 @@ const Index = ({data}) => {
 
 export async function getStaticProps({params}) {
     let article = await getCollection('article', {id: params.article})
+    let related = await getCollection('article', {subCategoryId: article[0].subCategoryId})
 
-    return { props: { data: article[0] } }
+    return { props: { data: article[0], related} }
 }
 
 export async function getStaticPaths() {

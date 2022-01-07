@@ -1,0 +1,37 @@
+@import "../../styles/globals.module";
+
+.container {
+  box-shadow: $card-elevation-2;
+  border-radius: $border-radius-2;
+  padding: $separation-16;
+  margin: $separation-16 0;
+
+  & > h1 {
+    margin: 0 0 $separation-16 0;
+  }
+}
+
+.main {
+  width: 100%;
+  height: 220px;
+  overflow: auto;
+}
+
+.articles {
+  display: flex;
+  width: 1000px;
+}
+
+.image {
+  margin: 0 $separation-8;
+}
+
+@media (max-width: 500px) {
+  .container {
+    margin: $separation-16 $separation-8;
+  }
+
+  .main {
+    height: 150px;
+  }
+}
