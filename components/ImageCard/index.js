@@ -18,7 +18,7 @@ const ImageCard = ({size, image, title, elevation, link, imageAlt, category, cat
                 <Image
                     className={`${styles.card__image}`}
                     src={image}
-                    alt={imageAlt}
+                    alt={imageAlt ? imageAlt : image}
                     layout="fill"
                     loader={myLoader}
                 />

@@ -15,7 +15,7 @@ const Category = ({data, category}) => {
         <Head>
             <title>TopReviews {title}</title>
             <meta content={`TopReviews search for the best products in all categories 
-            so you can easily compare and find the right one for you.`} property='description' />
+            so you can easily compare and find the right one for you.`} name='description' />
         </Head>
         <Layout>
             <h1 className={styles.title}>{title}</h1>

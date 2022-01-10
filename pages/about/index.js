@@ -10,6 +10,8 @@ const Index = () => {
         <>
             <Head>
                 <title>TopReviews About Page</title>
+                <meta content='TopReviews is a project that seeks to group the best products of each category in one place.
+                Best products, best offers.' name='description' />
             </Head>
             <Layout>
                 <div className={styles.container}>

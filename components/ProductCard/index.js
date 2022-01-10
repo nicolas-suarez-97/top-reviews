@@ -30,7 +30,7 @@ const ProductCard = ({product, className}) => {
             <div className={styles.product__more}>
                 <p className={styles.product__rating}>{rating}</p>
                 <a href={link} target="_blank" rel="noreferrer">
-                    <p className={styles.product__moreInfo}>More Info</p>
+                    <p className={styles.product__moreInfo}>Go to Amazon</p>
                 </a>
             </div>
         </a>

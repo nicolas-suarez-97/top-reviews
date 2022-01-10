@@ -19,8 +19,8 @@ const Index = ({data, related}) => {
         <Head>
             <title>{title} {date}</title>
             <meta name='title' content={`${title} ${date}`} />
-            <meta content={`TopReviews search for the best ${data.title} ${date} 
-            so you can easily compare and find the right one ${data.title} for you.`} property='description' />
+            <meta name='description' content={`TopReviews search for the best ${data.title} ${date} 
+            so you can easily compare and find the right one ${data.title} for you.`} />
             <meta name="keywords" content={`${data.category}, ${data.subCategory}, ${data.title}, ${title} ${date}
                 ${data.products.map(p => (` ${p.name}`))}
             `}/>

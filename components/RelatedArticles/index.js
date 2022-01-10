@@ -13,6 +13,7 @@ const RelatedArticles = ({articles}) => {
                                 key={a._id}
                                 size='small-square'
                                 image={a.imageUrl}
+                                imageAlt={a.title}
                                 title={a.title}
                                 elevation={2}
                                 link={`/${a.id}`}

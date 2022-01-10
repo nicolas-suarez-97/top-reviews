@@ -14,6 +14,8 @@ export default function Home({categories, articles}) {
         <>
             <Head>
                 <title>TopReviews</title>
+                <meta content='TopReviews is a project that seeks to group the best products of each category in one place.
+                Best products, best offers.' name='description' />
             </Head>
             <Layout>
                 <h1 className={styles.title}>Top Products In All Categories</h1>

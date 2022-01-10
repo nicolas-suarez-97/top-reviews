@@ -18,13 +18,13 @@ const Layout = props => {
                 <meta charSet="utf-8"/>
                 <meta name="dc.language" scheme="rfc1766" content="english" />
                 <meta name="author" content="TopReviews" />
-                <meta content='TopReviews' property='site_name' />
-                <meta content='TopReviews' property='og:site_name' />
-                <meta content='article' property='type' />
-                <meta content='article' property='og:type' />
-                <meta content='' property='og:url' />
+                <meta content='TopReviews' name='site_name' />
+                <meta content='TopReviews' name='og:site_name' />
+                <meta content='article' name='type' />
+                <meta content='article' name='og:type' />
+                <meta content='' name='og:url' />
                 <meta content='TopReviews is a project that seeks to group the best products of each category in one place.
-                Best products, best offers.' property='og:description' />
+                Best products, best offers.' name='og:description' />
             </Head>
             <Header />
             <main className={styles.container}>
