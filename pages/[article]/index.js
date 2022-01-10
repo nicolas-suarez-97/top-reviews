@@ -4,9 +4,11 @@ import styles from "./article.module.scss";
 import ProductCard from "../../components/ProductCard";
 import {getCollection} from "../../utils/mongodb";
 import BreadcrumbComponent from "../../components/BreadcrumbComponent";
-import {months} from "../../lib/constants";
+import {months} from "../../constants/date";
 import ContentTable from "../../components/ContentTable";
 import RelatedArticles from "../../components/RelatedArticles";
+import Head from "next/head";
+import {metaFormatDate, parseDate} from "../../utils/utils";
 
 const Index = ({data, related}) => {
     const title = `Top ${data.products.length} Best ${data.title}`;
@@ -14,6 +16,18 @@ const Index = ({data, related}) => {
     const steps = ['Categories', data.category, data.subCategory, title];
     const stepIds = ['categories', `categories/${data.categoryId}`, `categories/${data.categoryId}/${data.subCategoryId}`, data.id];
     return <>
+        <Head>
+            <title>{title} {date}</title>
+            <meta name='title' content={`${title} ${date}`} />
+            <meta content={`TopReviews search for the best ${data.title} ${date} 
+            so you can easily compare and find the right one ${data.title} for you.`} property='description' />
+            <meta name="keywords" content={`${data.category}, ${data.subCategory}, ${data.title}, ${title} ${date}
+                ${data.products.map(p => (` ${p.name}`))}
+            `}/>
+            <meta name="DateCreated" content={`${data.modificationDate}`} />
+            <meta name="date" content={`${parseDate(data.modificationDate)}`} />
+            <meta name="search_date" content={`${metaFormatDate(data.modificationDate)}`} />
+        </Head>
         <Layout>
             <h1 className={styles.title} id="title">{title} {date}</h1>
             <BreadcrumbComponent steps={steps} stepIds={stepIds}/>

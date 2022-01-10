@@ -4,6 +4,8 @@ import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import {getCollection} from "../../../utils/mongodb";
 import styles from "./index.module.scss"
 import BreadcrumbComponent from "../../../components/BreadcrumbComponent";
+import Head from "next/head";
+import React from "react";
 
 const Subcategory = ({data, category, subCategory}) => {
     const title = subCategory[0].toUpperCase() + subCategory.slice(1).replace(/-/g, ' ')
@@ -11,6 +13,11 @@ const Subcategory = ({data, category, subCategory}) => {
     const steps = ['Categories', categoryText, title];
     const stepIds = ['categories', `categories/${category}`, `categories/${category}/${subCategory}`];
     return <>
+        <Head>
+            <title>TopReviews {title}</title>
+            <meta content={`TopReviews search for the best products in all categories 
+            so you can easily compare and find the right one for you.`} property='description' />
+        </Head>
         <Layout>
             <h1 className={styles.title}>{title}</h1>
             <BreadcrumbComponent steps={steps} stepIds={stepIds} />

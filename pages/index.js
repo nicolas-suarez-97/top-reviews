@@ -5,11 +5,16 @@ import Masonry, {ResponsiveMasonry} from "react-responsive-masonry";
 import CategoryComponent from "../components/CategoryComponent/CategoryComponent";
 import {getCollection} from "../utils/mongodb";
 import CategoryCard from "../components/CategoryCard/CategoryCard";
+import Head from "next/head";
+import React from "react";
 
 export default function Home({categories, articles}) {
 
     return (
         <>
+            <Head>
+                <title>TopReviews</title>
+            </Head>
             <Layout>
                 <h1 className={styles.title}>Top Products In All Categories</h1>
                 <div>
@@ -18,45 +23,30 @@ export default function Home({categories, articles}) {
                             <ImageCard
                                 size='large-square'
                                 image={articles[0].imageUrl}
+                                imageAlt={articles[0].title}
                                 title={articles[0].title}
                                 elevation={2}
                                 link={`/${articles[0].id}`}
                                 className={styles.image}
+                                category={articles[0].category}
+                                categoryId={articles[0].categoryId}
+                                date={articles[0].modificationDate}
                             />
                         </div>
                         <div className={styles.secondary}>
-                            <ImageCard
-                                size='small-square'
-                                image={articles[1].imageUrl}
-                                title={articles[1].title}
-                                elevation={2}
-                                link={`/${articles[1].id}`}
-                                className={styles.image}
-                            />
-                            <ImageCard
-                                size='small-square'
-                                image={articles[2].imageUrl}
-                                title={articles[2].title}
-                                elevation={2}
-                                link={`/${articles[2].id}`}
-                                className={styles.image}
-                            />
-                            <ImageCard
-                                size='small-square'
-                                image={articles[3].imageUrl}
-                                title={articles[3].title}
-                                elevation={2}
-                                link={`/${articles[3].id}`}
-                                className={styles.image}
-                            />
-                            <ImageCard
-                                size='small-square'
-                                image={articles[4].imageUrl}
-                                title={articles[4].title}
-                                elevation={2}
-                                link={`/${articles[4].id}`}
-                                className={styles.image}
-                            />
+                            {articles.map((a, index) => index > 0 && index < 5 ? (
+                                <ImageCard
+                                    size='small-square'
+                                    image={a.imageUrl}
+                                    imageAlt={a.title}
+                                    title={a.title}
+                                    elevation={2}
+                                    link={`/${a.id}`}
+                                    className={styles.image}
+                                    category={a.category}
+                                    categoryId={a.categoryId}
+                                />
+                            ) : null)}
                         </div>
                     </div>
                 </div>

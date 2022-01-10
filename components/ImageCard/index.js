@@ -2,9 +2,9 @@ import React from "react";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import {getElevation} from "../../utils/utils";
+import {getElevation, parseDate} from "../../utils/utils";
 
-const ImageCard = ({size, image, title, elevation, link, imageAlt, className}) => {
+const ImageCard = ({size, image, title, elevation, link, imageAlt, category, categoryId, date, className}) => {
     const cardSize = getImageCardSize(size)
 
     let cardElevation = getElevation(elevation)
@@ -25,6 +25,12 @@ const ImageCard = ({size, image, title, elevation, link, imageAlt, className}) =
                 {
                     title ? (
                         <div className={styles.card__shadow}>
+                            <div className={styles.card__info}>
+                                <Link href={`/categories/${categoryId}`} passHref>
+                                    <div className={styles.card__category}>{category}</div>
+                                </Link>
+                                <p>{parseDate(date)}</p>
+                            </div>
                             <h1 className={styles.card__title}>{title}</h1>
                         </div>
                     ) : null

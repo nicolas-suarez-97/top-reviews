@@ -1,4 +1,5 @@
 import globalStyles from "../styles/globals.module.scss";
+import {months} from "../constants/date";
 
 const getElevation = (elevation) => {
     switch (elevation) {
@@ -24,7 +25,27 @@ const getEnvUrl = () => {
     return dev ? DEV_URL : PROD_URL;
 }
 
+const parseDate = (date) => {
+    const year = new Date(date).getFullYear();
+    const day = new Date(date).getDay();
+    const month = months[new Date(date).getMonth()];
+
+    return date ? `${month} ${day}, ${year}` : '';
+}
+
+const metaFormatDate = (date) => {
+    const year = new Date(date).getFullYear();
+    let day = new Date(date).getDay();
+    day = day <= 9 ? `0${day}` : day;
+    let month = new Date(date).getUTCMonth();
+    month = month <= 9 ? `0${month + 1}` : month + 1;
+
+    return date ? `${year}-${month}-${day}` : '';
+}
+
 export {
     getElevation,
     getEnvUrl,
+    parseDate,
+    metaFormatDate,
 }
