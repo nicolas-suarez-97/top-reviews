@@ -38,6 +38,7 @@ export default function Home({categories, articles}) {
                         <div className={styles.secondary}>
                             {articles.map((a, index) => index > 0 && index < 5 ? (
                                 <ImageCard
+                                    key={a.id}
                                     size='small-square'
                                     image={a.imageUrl}
                                     imageAlt={a.title}

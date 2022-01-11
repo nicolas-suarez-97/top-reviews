@@ -25,6 +25,19 @@ const Layout = props => {
                 <meta content='' name='og:url' />
                 <meta content='TopReviews is a project that seeks to group the best products of each category in one place.
                 Best products, best offers.' name='og:description' />
+                <script async src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GOOGLE_ANALYTICS}`} />
+                <script
+                    dangerouslySetInnerHTML={{
+                    __html: `
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}', {
+                          page_path: window.location.pathname,
+                        });
+                    `,
+                    }}
+                />
             </Head>
             <Header />
             <main className={styles.container}>
