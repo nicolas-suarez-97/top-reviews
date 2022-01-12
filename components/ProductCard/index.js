@@ -45,16 +45,18 @@ const ProductCard = ({product, className, number}) => {
             </a>
             {formatAbout !== null ? (
                 <section>
-                    <div className={`${styles.product__about} ${expand ? styles.expand : styles.less}`}>
-                        <h4>About this product</h4>
-                        <ul className={styles.aboutItems}>
-                            {formatAbout.map(a => (
-                                <li key={a} className={styles.aboutItem}>{a}</li>
-                            ))}
-                        </ul>
+                    <div className={`${styles.product__aboutContainer} `}>
+                        <div className={`${styles.product__about} ${expand ? styles.expand : styles.less}`}>
+                            <h4>About this product</h4>
+                            <ul className={styles.aboutItems}>
+                                {formatAbout.map(a => (
+                                    <li key={a} className={styles.aboutItem}>{a}</li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                     <div className={styles.product__expand} onClick={toggleExpand}>
-                        <i className={`material-icons ${expand ? styles.rotate : ''}`}>expand_more</i>
+                        <i className={`material-icons ${expand ? styles.rotateOn : styles.rotateOff}`}>expand_more</i>
                     </div>
                 </section>
             ) : null}
