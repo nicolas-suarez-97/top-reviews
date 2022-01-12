@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import ImageCard from "../ImageCard";
 import styles from "./styles.module.scss";
 import {getElevation} from "../../utils/utils";
@@ -7,7 +7,6 @@ const ProductCard = ({product, className, number}) => {
     const {imageUrl, link, storeUrl, name, store, rating, imageAlt, about} = product;
     const formatAbout = about ? about.split(/\n/) : null;
     const [expand, setExpand] = useState(false);
-    console.log(number)
 
     const toggleExpand = () => {
         expand ?
@@ -45,19 +44,19 @@ const ProductCard = ({product, className, number}) => {
                 </div>
             </a>
             {formatAbout !== null ? (
-                <>
+                <section>
                     <div className={`${styles.product__about} ${expand ? styles.expand : styles.less}`}>
                         <h4>About this product</h4>
-                        <ul className={styles.product__aboutItems}>
+                        <ul className={styles.aboutItems}>
                             {formatAbout.map(a => (
-                                <li key={a} className={styles.product__aboutItem}>{a}</li>
+                                <li key={a} className={styles.aboutItem}>{a}</li>
                             ))}
                         </ul>
                     </div>
                     <div className={styles.product__expand} onClick={toggleExpand}>
-                        <i className={`material-icons ${expand ? styles.rotate : null}`}>expand_more</i>
+                        <i className={`material-icons ${expand ? styles.rotate : ''}`}>expand_more</i>
                     </div>
-                </>
+                </section>
             ) : null}
         </div>
     );

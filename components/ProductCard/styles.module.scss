@@ -89,22 +89,21 @@
   &__about {
     padding: $separation-16;
 
-  }
+    .aboutItems {
+      padding: 0;
+      list-style: none;
+    }
 
-  &__aboutItems {
-    padding: 0;
-    list-style: none;
-  }
+    .aboutItem {
+      margin-top: $separation-8;
 
-  &__aboutItem {
-    margin-top: $separation-8;
-
-    &:before {
-      font-family: "Material Icons";
-      content: "done";
-      font-size: 18px;
-      margin-right: $separation-8;
-      font-weight: bold;
+      &:before {
+        font-family: "Material Icons";
+        content: "done";
+        font-size: 18px;
+        margin-right: $separation-8;
+        font-weight: bold;
+      }
     }
   }
 
@@ -112,6 +111,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
+
+    & > i:hover {
+      font-weight: bold;
+    }
   }
 }
 
