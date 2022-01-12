@@ -32,8 +32,9 @@ const Index = ({data, related}) => {
             <h1 className={styles.title} id="title">{title} {date}</h1>
             <BreadcrumbComponent steps={steps} stepIds={stepIds}/>
             <div className={styles.container}>
-                {data.products.map(p => (
+                {data.products.map((p, index) => (
                     <ProductCard
+                        number={index + 1}
                         key={p.name}
                         product={p}
                     />

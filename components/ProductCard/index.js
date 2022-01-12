@@ -3,10 +3,11 @@ import ImageCard from "../ImageCard";
 import styles from "./styles.module.scss";
 import {getElevation} from "../../utils/utils";
 
-const ProductCard = ({product, className}) => {
-    const {number, imageUrl, link, storeUrl, name, store, rating, imageAlt, about} = product;
+const ProductCard = ({product, className, number}) => {
+    const {imageUrl, link, storeUrl, name, store, rating, imageAlt, about} = product;
     const formatAbout = about ? about.split(/\n/) : null;
     const [expand, setExpand] = useState(false);
+    console.log(number)
 
     const toggleExpand = () => {
         expand ?
@@ -58,7 +59,6 @@ const ProductCard = ({product, className}) => {
                     </div>
                 </>
             ) : null}
-
         </div>
     );
 }
