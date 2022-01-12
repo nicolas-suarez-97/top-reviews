@@ -1,13 +1,18 @@
 @import "../../styles/globals.module";
 
 .product {
-  display: flex;
   padding: $separation-8;
   border-radius: $border-radius-2;
   width: 100%;
-  justify-content: space-between;
   position: relative;
   margin: $separation-24 0;
+  transition: 0.5s all ease;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
 
   &__number {
     position: absolute;
@@ -80,13 +85,57 @@
       text-decoration: underline;
     }
   }
+
+  &__about {
+    padding: $separation-16;
+
+  }
+
+  &__aboutItems {
+    padding: 0;
+    list-style: none;
+  }
+
+  &__aboutItem {
+    margin-top: $separation-8;
+
+    &:before {
+      font-family: "Material Icons";
+      content: "done";
+      font-size: 18px;
+      margin-right: $separation-8;
+      font-weight: bold;
+    }
+  }
+
+  &__expand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.expand {
+  display: block;
+}
+
+.less {
+  display: none;
+}
+
+.rotate {
+  transform: rotate(180deg);
+  transition: 0.3s all ease;
 }
 
 @media (max-width: 500px) {
   .product {
     margin: $separation-24 0;
-    flex-wrap: wrap;
-    justify-content: center;
+
+    &__container {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
     &__number {
       width: 40px;
