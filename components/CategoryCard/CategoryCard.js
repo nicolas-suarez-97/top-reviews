@@ -5,7 +5,7 @@ import Link from "next/link";
 const CategoryCard = ({link, name, imageUrl}) => {
     return imageUrl !== "" ? (
         <Link href={link} passHref>
-            <div className={styles.main}>
+            <a className={styles.main}>
                 <ImageCard
                     image={imageUrl}
                     link={link}
@@ -13,7 +13,7 @@ const CategoryCard = ({link, name, imageUrl}) => {
                     size='extra-small'
                 />
                 <p>{name}</p>
-            </div>
+            </a>
         </Link>
     ) : null;
 }

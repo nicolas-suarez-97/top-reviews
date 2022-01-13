@@ -7,6 +7,7 @@ import {getCollection} from "../utils/mongodb";
 import CategoryCard from "../components/CategoryCard/CategoryCard";
 import Head from "next/head";
 import React from "react";
+import Link from "next/link";
 
 export default function Home({categories, articles}) {
 
@@ -22,33 +23,40 @@ export default function Home({categories, articles}) {
                 <div>
                     <div className={styles.main}>
                         <div className={styles.primary}>
-                            <ImageCard
-                                size='large-square'
-                                image={articles[0].imageUrl}
-                                imageAlt={articles[0].title}
-                                title={articles[0].title}
-                                elevation={2}
-                                link={`/${articles[0].id}`}
-                                className={styles.image}
-                                category={articles[0].category}
-                                categoryId={articles[0].categoryId}
-                                date={articles[0].modificationDate}
-                            />
+                            <Link href={`/${articles[0].id}`}>
+                                <a>
+                                    <ImageCard
+                                        size='large-square'
+                                        image={articles[0].imageUrl}
+                                        imageAlt={articles[0].title}
+                                        title={articles[0].title}
+                                        elevation={2}
+                                        link={`/${articles[0].id}`}
+                                        className={styles.image}
+                                        category={articles[0].category}
+                                        categoryId={articles[0].categoryId}
+                                        date={articles[0].modificationDate}
+                                    />
+                                </a>
+                            </Link>
                         </div>
                         <div className={styles.secondary}>
                             {articles.map((a, index) => index > 0 && index < 5 ? (
-                                <ImageCard
-                                    key={a.id}
-                                    size='small-square'
-                                    image={a.imageUrl}
-                                    imageAlt={a.title}
-                                    title={a.title}
-                                    elevation={2}
-                                    link={`/${a.id}`}
-                                    className={styles.image}
-                                    category={a.category}
-                                    categoryId={a.categoryId}
-                                />
+                                <Link href={`/${a.id}`}  key={a.id} passHref>
+                                    <a>
+                                        <ImageCard
+                                            size='small-square'
+                                            image={a.imageUrl}
+                                            imageAlt={a.title}
+                                            title={a.title}
+                                            elevation={2}
+                                            link={`/${a.id}`}
+                                            className={styles.image}
+                                            category={a.category}
+                                            categoryId={a.categoryId}
+                                        />
+                                    </a>
+                                </Link>
                             ) : null)}
                         </div>
                     </div>

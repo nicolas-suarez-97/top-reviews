@@ -118,7 +118,12 @@
     align-items: center;
     cursor: pointer;
 
-    & > i:hover {
+    & > button {
+      border: none;
+      background-color: white;
+    }
+
+    & > button:hover {
       font-weight: bold;
     }
   }

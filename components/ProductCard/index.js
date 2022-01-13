@@ -56,7 +56,7 @@ const ProductCard = ({product, className, number}) => {
                         </div>
                     </div>
                     <div className={styles.product__expand} onClick={toggleExpand}>
-                        <i className={`material-icons ${expand ? styles.rotateOn : styles.rotateOff}`}>expand_more</i>
+                        <button aria-label="more info" className={`material-icons ${expand ? styles.rotateOn : styles.rotateOff}`}>expand_more</button>
                     </div>
                 </section>
             ) : null}

@@ -27,7 +27,7 @@ const ImageCard = ({size, image, title, elevation, link, imageAlt, category, cat
                         <div className={styles.card__shadow}>
                             <div className={styles.card__info}>
                                 <Link href={`/categories/${categoryId}`} passHref>
-                                    <div className={styles.card__category}>{category}</div>
+                                    <a className={styles.card__category}>{category}</a>
                                 </Link>
                                 <p>{parseDate(date)}</p>
                             </div>
