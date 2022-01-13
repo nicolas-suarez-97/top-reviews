@@ -13,13 +13,17 @@ function generateSiteMap(articles, categories, subCategories) {
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
      <!--We manually set the two URLs we know already-->
      <url>
-       <loc>${EXTERNAL_DATA_URL}</loc>
+        <loc>${EXTERNAL_DATA_URL}</loc>
+        <lastmod>${new Date().toISOString()}</lastmod>
+        <priority>1.00</priority>
      </url>
     ${staticPages
         .map((id) => {
             return `
        <url>
            <loc>${`${EXTERNAL_DATA_URL}/${id}`}</loc>
+           <lastmod>${new Date().toISOString()}</lastmod>
+           <priority>0.80</priority>
        </url>
      `
         })
@@ -29,6 +33,8 @@ function generateSiteMap(articles, categories, subCategories) {
             return `
        <url>
            <loc>${`${EXTERNAL_DATA_URL}/categories/${c.id}`}</loc>
+           <lastmod>${new Date().toISOString()}</lastmod>
+           <priority>0.80</priority>
        </url>
      `
         })
@@ -38,6 +44,8 @@ function generateSiteMap(articles, categories, subCategories) {
             return `
        <url>
            <loc>${`${EXTERNAL_DATA_URL}/categories/${s.categoryId}/${s.id}`}</loc>
+           <lastmod>${new Date().toISOString()}</lastmod>
+           <priority>0.80</priority>
        </url>
      `
         })
@@ -47,6 +55,8 @@ function generateSiteMap(articles, categories, subCategories) {
             return `
        <url>
            <loc>${`${EXTERNAL_DATA_URL}/${id}`}</loc>
+           <lastmod>${new Date().toISOString()}</lastmod>
+           <priority>0.80</priority>
        </url>
      `
         })
