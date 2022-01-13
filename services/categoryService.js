@@ -47,16 +47,19 @@ const updateCategory = async (category, router) => {
 }
 
 const deleteCategory = async (id, router) => {
-    try {
-        await fetch(path, {
-            method: 'DELETE',
-            body: id,
-        });
-        alert('Deleted Category')
-        return router.push(router.asPath);
-    } catch (error) {
-        console.log(error)
-        alert(error)
+    let ok = confirm('Delete category?');
+    if (ok) {
+        try {
+            await fetch(path, {
+                method: 'DELETE',
+                body: id,
+            });
+            alert('Deleted Category')
+            return router.push(router.asPath);
+        } catch (error) {
+            console.log(error)
+            alert(error)
+        }
     }
 };
 

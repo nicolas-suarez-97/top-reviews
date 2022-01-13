@@ -49,17 +49,20 @@ const updateArticle = async (article, router) => {
 }
 
 const deleteArticle = async (id, router) => {
-    try {
-        await fetch(path, {
-            method: 'DELETE',
-            body: id,
-        });
-        alert('Deleted')
-        return router.push(router.asPath);
-    } catch (error) {
-        console.log(error)
-        alert(error)
-        return error
+    let ok = confirm('Delete article?');
+    if (ok) {
+        try {
+            await fetch(path, {
+                method: 'DELETE',
+                body: id,
+            });
+            alert('Deleted')
+            return router.push(router.asPath);
+        } catch (error) {
+            console.log(error)
+            alert(error)
+            return error
+        }
     }
 };
 

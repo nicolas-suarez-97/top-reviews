@@ -15,6 +15,15 @@ const Index = ({data, related}) => {
     const date = `of ${months[new Date().getMonth()]} ${new Date().getFullYear()}`;
     const steps = ['Categories', data.category, data.subCategory, title];
     const stepIds = ['categories', `categories/${data.categoryId}`, `categories/${data.categoryId}/${data.subCategoryId}`, data.id];
+    data.products.sort(function (a, b) {
+        if (a.rating > b.rating) {
+            return -1;
+        }
+        if (a.rating < b.rating) {
+            return 1;
+        }
+        return 0;
+    });
     return <>
         <Head>
             <title>{title} {date}</title>

@@ -71,22 +71,25 @@ const updateSubCategory = async (subCategory, router) => {
 }
 
 const deleteSubCategory = async (subCategory, router) => {
-    try {
-        await fetch(path, {
-            method: 'DELETE',
-            body: subCategory._id,
-        });
-        alert('Deleted SubCategory')
-        let category = await getCategoryById(subCategory.categoryId);
-        if (category != null) {
-            let index = category.subCategories.findIndex(s => s._id === subCategory._id)
-            category.subCategories.splice(index, 1);
-            await updateCategory(category, router);
+    let ok = confirm('Delete SubCategory?');
+    if (ok) {
+        try {
+            await fetch(path, {
+                method: 'DELETE',
+                body: subCategory._id,
+            });
+            alert('Deleted SubCategory')
+            let category = await getCategoryById(subCategory.categoryId);
+            if (category != null) {
+                let index = category.subCategories.findIndex(s => s._id === subCategory._id)
+                category.subCategories.splice(index, 1);
+                await updateCategory(category, router);
+            }
+            return router.push(router.asPath);
+        } catch (error) {
+            console.log(error)
+            alert(error)
         }
-        return router.push(router.asPath);
-    } catch (error) {
-        console.log(error)
-        alert(error)
     }
 };
 
