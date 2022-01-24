@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import ImageCard from "../ImageCard";
 import styles from "./styles.module.scss";
 import {getElevation} from "../../utils/utils";
+import * as ga from '../../lib/ga';
 
 const ProductCard = ({product, className, number}) => {
     const {imageUrl, link, storeUrl, name, store, rating, imageAlt, about} = product;
@@ -13,9 +14,18 @@ const ProductCard = ({product, className, number}) => {
             setExpand(false) :
             setExpand(true)
     }
+
+    const gaEvent = {
+        action: 'view_item',
+        params: {
+            'link': link,
+            'name': name,
+        }
+    }
+
     return (
         <div className={`${styles.product} ${getElevation(2)} ${className}`}>
-            <a href={link} target="_blank" className={`${styles.product__container}`} rel="noreferrer">
+            <a href={link} target="_blank" className={`${styles.product__container}`} rel="noreferrer" onClick={() => ga.event(gaEvent)}>
                 {
                     number ? (<div className={`${styles.product__number} ${getElevation(2)}`}>{number}</div>) : null
                 }
