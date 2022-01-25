@@ -27,7 +27,7 @@ const getEnvUrl = () => {
 
 const parseDate = (date) => {
     const year = new Date(date).getFullYear();
-    const day = new Date(date).getDay();
+    const day = new Date(date).getDate();
     const month = months[new Date(date).getMonth()];
 
     return date ? `${month} ${day}, ${year}` : '';
