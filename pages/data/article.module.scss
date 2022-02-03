@@ -1,0 +1,53 @@
+@import "../../styles/globals.module";
+
+.container {
+  margin-top: 500px;
+}
+
+.test {
+  background-color: white;
+  position: fixed;
+  top: 0;
+  z-index: 8;
+  width: 100%;
+}
+
+.shadow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: $separation-16;
+}
+
+.article {
+  width: 98%;
+  overflow: auto;
+  transition: all 0.5s ease-out;
+  background-color: white;
+  max-height: 900px;
+  padding: $separation-16;
+}
+
+.none {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.expand {
+  opacity: 1;
+  transition: all 0.2s ease-out;
+}
+
+.less {
+  opacity: 0;
+  margin-top: -100%;
+  transition: all 0.2s ease-in;
+}

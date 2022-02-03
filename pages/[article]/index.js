@@ -49,6 +49,7 @@ const Index = ({data, related}) => {
                     />
                 ))}
             </div>
+            <div dangerouslySetInnerHTML={{ __html: data.description ? data.description : '' }} />
             <RelatedArticles articles={related} />
             <BreadcrumbComponent steps={steps} stepIds={stepIds}/>
         </Layout>
