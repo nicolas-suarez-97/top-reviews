@@ -44,6 +44,18 @@ const Article = ({categories, subCategories, articles}) => {
 
     const columns = [
         {
+            name: 'Image',
+            selector: row => (
+                <img alt={row.name} src={row.imageUrl} height={100}/>
+            )
+        },
+        {
+            name: 'Select',
+            selector: row => (
+                <button onClick={() => setArticle(row)}>Select</button>
+            )
+        },
+        {
             name: 'Title',
             selector: row => row.title,
             sortable: true,
@@ -69,21 +81,9 @@ const Article = ({categories, subCategories, articles}) => {
             selector: row => row.products.length,
         },
         {
-            name: 'Select',
-            selector: row => (
-                <button onClick={() => setArticle(row)}>Select</button>
-            )
-        },
-        {
             name: 'Delete',
             selector: row => (
                 <button onClick={() => deleteArticle(row._id, router)}>Delete</button>
-            )
-        },
-        {
-            name: 'Image',
-            selector: row => (
-                <img alt={row.name} src={row.imageUrl} height={100}/>
             )
         },
     ];
